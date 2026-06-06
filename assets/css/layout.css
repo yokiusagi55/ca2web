@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'akirafont'; 
   /* 注意：../ 表示返回上一级，进入 fonts 文件夹 */
-  src: url('../fonts/Akira-Exp.woff2') format('woff2'); /* 优先用 woff2 */
+  src: url("/assets/fonts/akira-exp.woff2") format('woff2'); /* 优先用 woff2 */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'homo-sc-black'; 
   /* 注意：../ 表示返回上一级，进入 fonts 文件夹 */
-  src: url('../fonts/homo-sc-black.woff2') format('woff2'); /* 优先用 woff2 */
+  src: url("/assets/fonts/homo-sc-black.woff2") format('woff2'); /* 优先用 woff2 */
   font-weight: 900;
   font-style: normal;
   font-display: swap;
