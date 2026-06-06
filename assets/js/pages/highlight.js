@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const raiaGoods = [
     {
       id: "raia-01",
-      name: "RAIA PROJECT 连帽卫衣",
+      name: "RAIA PROJECT 拉链卫衣",
       tag: "RAIA_PROJECT | 受注预定",
       cardImg: "../../assets/images/goods/shouhuan.jpg",   // 渲染在上方滚动卡片里的图
     detailImg: "../../assets/images/about/banner.png", // 点击后注入到下方大框里的图
