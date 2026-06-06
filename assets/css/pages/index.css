@@ -3141,3 +3141,7 @@ body {
         display: none !important;    /* 手机端无空间，直接隐藏字符画 */
     }
 }
+
+* {
+    max-width: 100%;
+}
