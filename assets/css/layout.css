@@ -190,6 +190,13 @@
 .menu-button { display: none; }
 
 @media (max-width: 992px) {
+  /* 🎯 【安全防御】锁死移动端视口，斩断一切右侧溢出和滑动的可能 */
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   /* 1. 显示汉堡按钮 */
   .menu-button {
     display: flex;
@@ -199,6 +206,7 @@
     height: 30px;
     cursor: pointer;
     z-index: 1001;
+    position: relative; /* 🎯 【核心微调】必须加 relative！否则下面 absolute 的三条杠在小屏上会错位乱飞撑开右侧 */
   }
   
   .hamburger, .hamburger::before, .hamburger::after {
@@ -208,26 +216,45 @@
     position: absolute;
     transition: 0.3s;
   }
+  
+  /* 🎯 【精准居中】确保三条杠在 30x30 的容器内绝对居中，避免微小溢出 */
+  .hamburger {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .hamburger::before { content: ""; top: -8px; left: 0; }
-  .hamburger::after { content: ""; bottom: -8px; left: 0; }
+  /* 🎯 【动画顺畅】将 bottom: -8px 改为 top: 8px，配合你下面的变叉号 transform 旋转时轴心更稳 */
+  .hamburger::after { content: ""; top: 8px; left: 0; }
 
   /* 2. 改造 header-right 为全屏侧边栏 */
   .header-right {
     position: fixed;
     top: 0;
     right: -100%; /* 初始藏在右侧 */
+    
+    /* 🎯 【屏幕自适应】 */
     width: 75%;
+    max-width: 320px; /* 🎯 【平板适配】限制最大宽度。防止在平板大屏幕上 75% 显得过于巨大 */
+    
     height: 100vh;
+    height: 100dvh; /* 🎯 【全面屏适配】动态视口高度，防止被 iPhone / Android 手机自带的底部虚拟浏览器工具栏遮挡 */
     background: rgba(7, 8, 12, 0.98);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* 🎯 【Safari兼容】确保苹果手机上毛玻璃效果生效 */
     
     /* 内部元素改为纵向排列 */
+    display: flex; /* 🎯 【结构补丁】确保 flex 布局在 fixed 定位下 100% 生效 */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3.5rem; /* 增加导航和音乐之间的间距 */
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    
+    /* 🎯 【防挤压溢出】 */
+    box-sizing: border-box;
+    padding: 40px 20px;
   }
 
   /* 3. 展开状态 */
@@ -237,18 +264,18 @@
 
   /* 4. 音乐控件微调：在菜单里要显眼一点 */
   .nav-music-btn {
-  position: relative;
-  /* 确保在 nav-inner 内部也是高层级 */
-  z-index: 10; 
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer !important; /* 强制显示手型 */
-  pointer-events: auto !important; /* 强制开启点击 */
-  padding: 4px 12px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
+    position: relative;
+    /* 确保在 nav-inner 内部也是高层级 */
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer !important; /* 强制显示手型 */
+    pointer-events: auto !important; /* 强制开启点击 */
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
   
   .music-text {
     display: block !important; /* 菜单里可以显示文字 */
@@ -258,19 +285,35 @@
 
   /* 5. 导航项微调 */
   .main-nav {
+    display: flex; /* 🎯 【结构补丁】确保 flex 生效 */
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    width: 100%; /* 🎯 【宽度锁定】让导航容器占满侧边栏，防止内容因挤压换行 */
   }
   
   .main-nav a {
     font-size: 1.2rem;
+    display: block;
+    width: 100%;        /* 🎯 【点击域扩大】方便手机端手指点击 */
+    text-align: center; /* 🎯 文字居中 */
   }
 
   /* 6. 汉堡变叉号 */
   .nav-toggle:checked ~ .menu-button .hamburger { background: transparent; }
   .nav-toggle:checked ~ .menu-button .hamburger::before { transform: rotate(45deg); top: 0; }
-  .nav-toggle:checked ~ .menu-button .hamburger::after { transform: rotate(-45deg); bottom: 0; }
+  .nav-toggle:checked ~ .menu-button .hamburger::after { transform: rotate(-45deg); top: 0; } /* 🎯 【动画修复】改为 top: 0 归位后旋转，生成的 X 完美居中不抖动 */
+}
+
+/* ==================================================== */
+/* 🎯 【全量新增】极端小屏/窄屏手机完美适配 (宽度小于 480px) */
+/* ==================================================== */
+@media (max-width: 480px) {
+  .header-right {
+    width: 100%;       /* 🎯 在纯手机端，侧边栏直接改为 100% 全屏，彻底解决任何比例下的露白问题 */
+    max-width: 100vw;
+    gap: 2.5rem;       /* 🎯 稍微压缩纵向间距，防止小屏/矮屏手机（如 iPhone SE）垂直方向塞不下导致死锁 */
+  }
 }
 
 

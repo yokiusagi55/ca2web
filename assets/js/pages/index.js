@@ -516,87 +516,80 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* lineup-video-preview */
+/* ==================================================== 
+   LINEUP 桌面端专用：纵向滚动吸附与卡片联动控制
+   ==================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.lineup_section');
+    const leftContainer = document.querySelector('.left_container');
     const videoBg = document.getElementById('video-bg-container');
     const videoPlayer = document.getElementById('local-video-player');
-    const leftContainer = document.querySelector('.left_container');
 
-    function runStage() {
+    function runPCStage() {
+        // PC端视口高度通常固定，获取一次即可
         const winH = window.innerHeight;
 
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
             const wrapper = section.querySelector('.lineup_sticky_wrapper');
             const cards = section.querySelectorAll('.staff_card');
+            if (!cards.length) return;
 
-            // 1. 彻底移出视口：停止播放并清空
+            // 1. 全局边界：完全离开视口则重置
             if (rect.top > winH || rect.bottom < 0) {
-                if (videoPlayer.src !== "") {
-                    videoBg.classList.remove('is_playing');
-                    videoPlayer.pause();
-                    videoPlayer.src = ""; 
-                    videoPlayer.removeAttribute('data-current');
-                }
                 if (wrapper) wrapper.classList.remove('is_active');
+                if (videoBg) videoBg.classList.remove('is_playing');
                 return;
             }
 
-            // 2. 进入 Sticky 吸附区
-            if (rect.top <= 0 && rect.bottom > 0) {
+            // 2. PC端吸附计算：只有当 Section 处于滚动吸附阶段时
+            // rect.top <= 0 代表顶部已触顶，rect.bottom >= winH 代表吸附区未滚完
+            if (rect.top <= 0 && rect.bottom >= winH) {
                 if (wrapper) wrapper.classList.add('is_active');
-                
-                // 计算当前滚动进度对应的卡片
+
+                // 计算当前滚动的进度 (0.0 到 1.0)
                 const scrollRange = section.offsetHeight - winH;
                 const progress = Math.abs(rect.top) / (scrollRange || 1);
+                
                 const step = 1 / cards.length;
                 let activeIdx = Math.floor(progress / step);
                 activeIdx = Math.max(0, Math.min(cards.length - 1, activeIdx));
 
-                // 更新卡片状态
+                // 3. 更新卡片状态
                 cards.forEach((card, i) => {
                     card.classList.remove('active', 'passed');
                     if (i === activeIdx) card.classList.add('active');
                     else if (i < activeIdx) card.classList.add('passed');
                 });
 
-                // 左右模式切换
+                // 4. 左侧裁判模式切换
                 if (leftContainer) {
-                    if (activeIdx >= 5) leftContainer.classList.add('referee-mode');
-                    else leftContainer.classList.remove('referee-mode');
+                    leftContainer.classList.toggle('referee-mode', activeIdx >= 5);
                 }
 
-                // --- 视频联动核心（已修改） ---
+                // 5. PC端视频联动
                 const activeCard = cards[activeIdx];
-                // 直接抓取完整的相对路径
                 const fullSrc = activeCard ? activeCard.getAttribute('data-video') : null;
 
                 if (fullSrc) {
-                    // 仅当视频文件变化时才 load，避免滚动过程中重复加载导致闪烁
                     if (videoPlayer.getAttribute('data-current') !== fullSrc) {
                         videoPlayer.src = fullSrc;
                         videoPlayer.setAttribute('data-current', fullSrc);
                         videoPlayer.load();
-                        
-                        // 强制触发播放
-                        videoPlayer.play().catch((e) => { 
-                            console.log("播放被拦截或路径错误:", e); 
-                        });
+                        videoPlayer.play().catch(e => console.log("播放错误:", e));
                     }
-                    videoBg.classList.add('is_playing');
+                    if (videoBg) videoBg.classList.add('is_playing');
                 }
             } else {
-                // 滚出吸附区但还在 section 内
+                // 滚出吸附区，但还在 Section 内的逻辑
                 if (wrapper) wrapper.classList.remove('is_active');
-                videoBg.classList.remove('is_playing');
             }
         });
     }
 
-    window.addEventListener('scroll', runStage);
-    runStage(); 
+    window.addEventListener('scroll', runPCStage);
+    runPCStage();
 });
-
 
 /* lineup打字机效果 */
 document.addEventListener("DOMContentLoaded", function() {
@@ -1011,4 +1004,70 @@ document.addEventListener("DOMContentLoaded", () => {
     script.async = true;
 
     document.head.appendChild(script);
+});
+
+
+/* ==================================================== 
+   LINEUP 移动端原生拖拽与视频流联动控制中心
+   ==================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const viewport = document.querySelector('.card_viewport');
+    const cards = document.querySelectorAll('.staff_card');
+    const leftContainer = document.querySelector('.left_container');
+    const videoBg = document.getElementById('video-bg-container');
+    const videoPlayer = document.getElementById('local-video-player');
+
+    if (!viewport || !cards.length) return;
+
+    // 🎯 核心红外线扫描配置：只盯着手机横向容器正中央那一根纵向中心线 (左右对切 45% 的边界)
+    const observerOptions = {
+        root: viewport,
+        rootMargin: '0px -45% 0px -45%', // 斩断两边，只对准中间 10% 的黄金触发真空区
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // 当某个卡片被拖拽/滑到容器的正中央时触发
+            if (entry.isIntersecting) {
+                const activeCard = entry.target;
+                
+                // 1. 净化 Class 队列：只高亮当前停在中央的卡片
+                cards.forEach(card => card.classList.remove('active'));
+                activeCard.classList.add('active');
+
+                // 2. 联动计算左侧裁判/文案模式
+                const activeIdx = Array.from(cards).indexOf(activeCard);
+                if (leftContainer) {
+                    if (activeIdx >= 5) {
+                        leftContainer.classList.add('referee-mode');
+                    } else {
+                        leftContainer.classList.remove('referee-mode');
+                    }
+                }
+
+                // 3. 动态流媒体联动 (带换片防闪烁电闸)
+                if (videoPlayer) {
+                    const fullSrc = activeCard.getAttribute('data-video');
+                    if (fullSrc) {
+                        // 判定如果视频源和当前在放的一致，则不动它，防止反复 load 闪黑屏
+                        if (videoPlayer.getAttribute('data-current') !== fullSrc) {
+                            videoPlayer.src = fullSrc;
+                            videoPlayer.setAttribute('data-current', fullSrc);
+                            videoPlayer.load();
+                            
+                            // 手机端安全机制：异步播放必须使用 catch 兜底防报错
+                            videoPlayer.play().catch((e) => {
+                                console.log("移动端视频流自动播放受限或路径解析错误:", e);
+                            });
+                        }
+                        videoBg?.classList.add('is_playing');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // 开启扫描器监听
+    cards.forEach(card => observer.observe(card));
 });

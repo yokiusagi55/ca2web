@@ -1550,6 +1550,9 @@ body {
 }
 
 
+
+
+
 /* ========================================
    LEFT TITLE TRANSITION
    默认：JUDGE 红色高亮，REFEREE 暗灰
@@ -1922,30 +1925,35 @@ body {
 /* ==================================================== */
 @media screen and (max-width: 768px) {
     
-    /* 1. 调整吸顶大容器高度，让手机上滑动的速率更自然 */
+    /* 1. 🎯【核心修改】恢复自然的移动端高度，不需要 300vh 的高负荷假滚轴行程了 */
     .lineup_section {
-        height: 300vh; 
+        height: auto !important; 
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
-    /* 2. 大骨架由横排改为纵向列排布 */
+    /* 2. 大骨架在手机上固定高度锁死 */
     .lineup_sticky_wrapper {
+        position: relative !important;
+        height: 100vh !important;
+        height: 100dvh !important;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding: 0 20px;
+        padding: 0; /* 🎯 释放两边，让滚动管道能够100%撑满屏幕 */
         box-sizing: border-box;
     }
 
     /* ---------------------------------------------------- */
-    /* 🏛️ 上方文字区（来自你觉得好用的那一版定位） */
+    /* 🏛️ 上方文字区 */
     /* ---------------------------------------------------- */
     .left_container {
         position: absolute !important;
         left: 20px !important;
-        top: 150px !important;        /* 手机端从顶部往下挪，避开 Navbar */
+        top: 80px !important;        /* 🎯 稍微往上移，因为卡片容器变成了原生的，需要给下方留出更多空间 */
         width: calc(100% - 40px) !important;
         height: auto !important;
-        margin-top: 0 !important;     /* 清除大屏 margin */
+        margin-top: 0 !important;     
         padding-left: 0 !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1982,115 +1990,150 @@ body {
     }
 
     /* ---------------------------------------------------- */
-    /* 🎴 核心保留：右侧舞台容器（最好用的动态联动、垂直绝对居中方案） */
+    /* 🎴 右侧舞台容器（安全边界防留白外壳） */
     /* ---------------------------------------------------- */
     .right_stage {
         position: absolute !important;
         left: 0 !important;
-        
-        /* 🚀 核心保留：利用绝对定位的上下锚点，在文字下方与 HUD 上方之间拉满空间 */
-        top: 80px !important; 
-        bottom: 70px !important; 
-        height: auto !important; /* 彻底放开，拒绝硬编码高度 */
+        top: 220px !important;       /* 🎯 固定在文字区下方开始 */
+        bottom: 80px !important;     /* 🎯 锁死在底部 HUD 上方结束 */
+        height: auto !important;     /* 完美拉伸 */
         
         width: 100% !important;
         margin-top: 0 !important;
         padding-bottom: 0 !important;
         
-        /* 🚀 核心保留：让卡片在这片动态拉伸的独立安全舞台里垂直水平绝对居中 */
         display: flex !important;
         align-items: center !important; 
         justify-content: center !important;
         z-index: 15 !important;
-        overflow: hidden !important;
+        overflow: hidden !important; /* 🎯 核心闭锁：两边卡片在这里被斩断，绝对不产生屏幕右侧留白 */
     }
 
-    /* 🚀 核心保留：视口高度自适应，由里面的图片和文字自由、自然地撑开 */
+    /* ---------------------------------------------------- */
+    /* 🎯 核心改动：视口容器重塑为【原生左右拖拽横滑管道】 */
+    /* ---------------------------------------------------- */
     .card_viewport {
+        display: flex !important;          /* 🎯 强行将卡片横向排成一排 */
+        flex-direction: row !important;    /* 彻底清除原先的 column 覆盖 */
+        flex-wrap: nowrap !important;      /* 绝对不允许换行 */
         width: 100% !important;
-        max-width: 300px !important; /* 维持黄金视觉宽度 */
-        height: auto !important;     /* 彻底解放，由图片高宽比说了算 */
+        max-width: 100vw !important;
+        height: 35vh !important;           /* 🎯 严格卡死视口高度，不因滚动拉高滑条 */
         margin: 0 auto !important;
-        display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
+        
+        /* 🎯 启动硬件级原生横向滚动及中心磁吸吸附（Scroll Snap） */
+        overflow-x: auto !important;       
+        overflow-y: hidden !important;     
+        scroll-snap-type: x mandatory !important; 
+        -webkit-overflow-scrolling: touch !important; /* iOS 惯性滑动提速 */
+        
+        /* 🎯 两侧各留 25% 留白衬垫：保证首尾卡片被拖到中间时能够完美居中对齐 */
+        padding: 0 25vw !important;        
+        box-sizing: border-box !important;
+        gap: 20px !important;              /* 卡片与卡片之间的拖拽间距 */
     }
 
-    /* 🚀 核心保留：卡片包裹层自适应高度 */
+    /* 🎯 【终极防御】：彻底隐藏移动端所有浏览器丑陋的横向滚动条，保证绝不拉高滑条高度 */
+    .card_viewport::-webkit-scrollbar {
+        display: none !important;          /* Webkit内核: Chrome, Safari, 手机自带浏览器 */
+    }
+    .card_viewport {
+        scrollbar-width: none !important;  /* Firefox 移动端 */
+        -ms-overflow-style: none !important;/* IE/Edge */
+    }
+
+    /* ---------------------------------------------------- */
+    /* 🎯 核心改动：单个卡片（由绝对定位乱飞 改为 相对传送带商品） */
+    /* ---------------------------------------------------- */
     .staff_card {
-        width: 100% !important;
-        height: auto !important; 
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) translateX(60px); /* 维持你原本的切换动效初始状态 */
+        position: relative !important;     /* 🎯 彻底废除 absolute，回到 Flex 流里正常横排 */
+        left: auto !important;
+        top: auto !important;
+        flex-shrink: 0 !important;         /* 🎯 极度关键：防止卡片因为横向挤压在手机上缩水变形 */
+        
+        width: 50vw !important;            /* 每个卡片在手机屏幕上占 50% 宽，暗示两边还有内容可以拖拽 */
+        max-width: 240px !important;
+        height: 100% !important; 
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: center !important;
+        
+        /* 🎯 完美的吸附落点：手一松开，卡片正中心立刻与 viewport 中心线贴合磁吸 */
+        scroll-snap-align: center !important; 
+        
+        /* 未激活卡片：默认暗淡且稍微缩小，形成主次呼吸感 */
+        opacity: 0.3 !important;
+        transform: scale(0.9) !important;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        pointer-events: auto !important;   /* 必须开启交互，允许拖拽点击 */
     }
     
-    /* 当卡片激活时，移动端水平居中 */
+    /* 🎯 当卡片通过左右拖拽滑入屏幕正中心（Active 激活态：点亮、放大） */
     .staff_card.active {
-        transform: translateX(-50%) translateX(0) !important;
+        opacity: 1 !important;
+        transform: scale(1.05) !important; /* 微微放大凸显机能感 */
     }
     
-    /* 当卡片滑出时 */
+    /* 🎯 清除旧写法里多余的 passed 偏移动画，原生拖拽靠 flex 流自带位移，不需要它了 */
     .staff_card.passed {
-        transform: translateX(-50%) translateX(-60px) !important;
+        transform: scale(0.9) !important; 
+        opacity: 0.3 !important;
     }
 
-    /* 🚀 核心保留：彻底驯服这张大名字图片，高度放手，最大高度限制在 30vh */
+    /* 彻底驯服卡片内的大图 */
     .staff_card img {
         width: 100% !important;
         max-width: 100% !important;
-        height: auto !important;        /* 高度等比例收缩 */
-        max-height: 30vh !important;    /* 限制最高不能超过 30vh，防止吃满屏幕 */
-        object-fit: contain !important; /* 确保长宽比不失真 */
+        height: auto !important;        
+        max-height: 26vh !important;    /* 配合 viewport 高度，安全卡死 */
+        object-fit: contain !important; 
         filter: grayscale(1) brightness(0.2) !important;
+        transition: all 0.4s ease !important;
     }
 
-    /* 卡片激活时的状态 */
+    /* 卡片激活时的图片状态 */
     .staff_card.active img {
         filter: grayscale(0) brightness(1.1) !important;
     }
 
-    /* 卡片底部的具体名字/描述文字微调 */
+    /* 卡片底部的名字描述 */
     .staff_card.active span {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
         margin-top: 8px !important;
         color: #fff !important;
         opacity: 1 !important;
     }
 
     /* ---------------------------------------------------- */
-    /* 📟 5. 移动端底部 HUD 控制台重塑（高精度精简排版） */
+    /* 📟 底部 HUD 控制台 */
     /* ---------------------------------------------------- */
     .ui_bottom_hud {
         z-index: 85;
     }
 
     .hud_center_arrow_zone {
-        height: 28px !important; /* 降低跳动高度，防止撞卡片名字 */
+        height: 24px !important; 
     }
     
     .hud_arrow_bounce {
-        width: 12px !important; /* 缩小跳动小箭头 */
+        width: 12px !important; 
         height: 12px !important;
         border-right-width: 3px !important;
         border-bottom-width: 3px !important;
     }
 
-    /* 控制台主体面板高度降维 */
     .hud_main_console {
-        height: 48px !important; /* 高度从 64px 缩减到 48px */
+        height: 48px !important; 
         padding: 0 16px !important;
     }
 
-    /* 隐藏掉两侧多余装饰文案 */
     .hud_side_text {
         display: none !important; 
     }
 
-    /* 中央状态文案全屏绝对居中点亮 */
     .hud_center_status {
         width: 100%;
         font-size: 0.95rem !important;
@@ -2102,7 +2145,7 @@ body {
     }
 
     /* ---------------------------------------------------- */
-    /* ⚔️ 6. 顶部 UI Top Bar 吸附自适应（防止撞 Navbar） */
+    /* ⚔️ 顶部 UI Top Bar 吸附自适应 */
     /* ---------------------------------------------------- */
     #lineup-module.is_active .ui_top_bar {
         transform: translateY(50px) !important; 
@@ -2975,20 +3018,90 @@ body {
     display: none !important;
 }
 
+/* ==================================================== */
+/* 移动端与响应式适配 (平板及手机) */
+/* ==================================================== */
 @media (max-width: 768px) {
+    /* 1. 缩小外层容器的上下留白，防止手机上空白过多 */
+    .access_section {
+        padding: 40px 0;
+    }
+
+    /* 2. 关键：大幅缩小大标题字号，防止其直接溢出屏幕右侧 */
+    .access_centered_title {
+        font-size: 2.2rem;       /* 缩小字号 */
+        letter-spacing: 1.5px;   /* 适当缩减字间距 */
+        margin: 0 0 8px 0;
+    }
+
+    .venue_subtitle {
+        font-size: 0.9rem;
+        margin: 0 0 30px 0;
+        padding: 0 15px;         /* 防止长副标题贴边 */
+    }
+
+    /* 3. 调整两栏网格为单栏布局 */
     .access_split_grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;               /* 减小间距 */
         padding: 0 20px;
+        margin-bottom: 30px;
     }
+
+    /* 4. 关键：导航标签允许换行，或者允许横向滚动，防止撑开容器 */
+    .switch_nav_tabs {
+        flex-wrap: wrap;         /* 方法A：如果按钮多，允许换行 */
+        gap: 8px;
+        
+        /* 如果你希望它们像App一样不换行但可以横向滑动，可以解开下方注释：
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; 
+        */
+    }
+
+    .nav_tab {
+        font-size: 0.75rem;
+        padding: 8px 10px;
+        flex: 1 1 calc(50% - 8px); /* 在手机上每行显示2个按钮（可根据实际情况调整） */
+        min-width: 0;             /* 核心：防止 flex 子元素溢出 */
+    }
+
+    /* 5. 修正图片盒子：保持 16:9 比例即可，不要硬编码高度 */
     .viewport_box {
-        height: 240px;
+        height: auto;             /* 清除之前硬编码的 240px */
+        aspect-ratio: 16 / 9;     /* 严格遵守比例自适应宽度 */
     }
+
+    /* 6. 减小文本和信息的间距，防止纵向拉得太长 */
+    .text_info_pane {
+        gap: 20px;
+    }
+
+    .meta_value {
+        font-size: 0.95rem;       /* 稍微降低正文字号 */
+    }
+
+    .route_spec_list li {
+        font-size: 0.88rem;
+    }
+
+    /* 7. 适当降低底部地图在手机上的高度 */
     .map_bottom_stage {
-        height: 300px;
+        height: 260px;
     }
 }
 
+/* 针对超小屏幕手机（如 iPhone SE, 宽度 <= 375px）的微调 */
+@media (max-width: 375px) {
+    .access_centered_title {
+        font-size: 1.8rem;        /* 进一步缩小特大标题 */
+    }
+    .nav_tab {
+        flex: 1 1 100%;           /* 极小屏幕下，标签按钮一人一行 */
+    }
+}
 
 
 /* ==========================================
@@ -3089,59 +3202,58 @@ body {
     margin: 0;
 }
 
-/* 移动端无缝微调 */
+/* ==================================================== */
+/* 移动端与响应式适配 (平板及手机) */
+/* ==================================================== */
 @media (max-width: 768px) {
     .sponsor_section_simple {
-        padding: 60px 0;
+        padding: 40px 0; /* 适当减小上下留白，更符合移动端紧凑的视觉 */
+        margin-bottom: 40px;
     }
+
+    /* 🎯 核心修复：大幅度降低大标题字号，防止其将手机屏幕无情撑宽 */
     .sponsor_title_simple {
-        font-size: 4rem;
-        margin-bottom: 45px;
+        font-size: 2.2rem;       /* 从 4rem 降到 2.2rem，大屏手机黄金比例 */
+        letter-spacing: 1.5px;   /* 适当缩减字间距 */
+        margin-bottom: 40px;     /* 稍微拉近与下方的距离 */
+        padding: 0 15px;         /* 左右加少许内边距，防止极个别长单词贴边 */
+        word-break: break-word;  /* 强制长单词在必要时换行 */
     }
+
+    /* 减小纵向列表的间距，让滑动更连贯 */
     .sponsor_list_simple {
-        gap: 45px;
+        gap: 40px;               
     }
+
+    /* 单个项目内边距与间距微调 */
+    .sponsor_item_simple {
+        gap: 12px;
+        width: 100%;             /* 锁死宽度 */
+        max-width: 100%;
+    }
+
+    /* 同步缩减背景扩散圆的大小，使其完美隐藏在 150px 的头像后 */
     .sponsor_link_simple::before {
-        width: 190px;      /* 移动端同步缩小背后的扩散圆 */
-        height: 190px;
+        width: 180px;      
+        height: 180px;
     }
+
+    /* 头像框在手机上保持 150px 是很合适的尺寸 */
     .sponsor_img_simple {
-        width: 150px;      /* 移动端缩减头像框尺寸 */
+        width: 150px;      
         height: 150px;
+        border-width: 2px;       /* 稍微改细一点边框，让线条在小屏上更精致 */
     }
+
+    /* 底部说明文字字号和间距 */
     .sponsor_desc_simple {
-        font-size: 0.75rem;
+        font-size: 0.85rem;      /* 0.75rem 有点太小了，0.85rem 保证可读性 */
+        padding: 0 20px;         /* 防止多行文本时贴到手机屏幕边缘 */
     }
 }
 
+/* 🎯
 
 
 
-/* =====================================================
-   终极补丁：彻底解决移动端右侧溢出漏白
-   ===================================================== */
-@media (max-width: 768px) {
-    /* 1. 修复 Hero 底部按钮行引起的横向溢出 */
-    .kv-actions {
-        flex-direction: column !important; /* 变更为垂直排列 */
-        width: 100% !important;
-        gap: 12px !important;
-    }
-    .kv-actions .btn {
-        width: 200px !important;     /* 统一手机端按钮宽度 */
-        min-width: auto !important;  /* 释放桌面端的 180px 锁死 */
-    }
 
-    /* 2. 修复 Schedule 区域 ASCII 字符图引起的横向溢出 */
-    .schedule-grid {
-        display: block !important;
-        min-height: auto !important;
-    }
-    .schedule-visual {
-        display: none !important;    /* 手机端无空间，直接隐藏字符画 */
-    }
-}
-
-* {
-    max-width: 100%;
-}
