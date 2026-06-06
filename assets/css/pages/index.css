@@ -3115,3 +3115,29 @@ body {
 }
 
 
+
+
+/* =====================================================
+   终极补丁：彻底解决移动端右侧溢出漏白
+   ===================================================== */
+@media (max-width: 768px) {
+    /* 1. 修复 Hero 底部按钮行引起的横向溢出 */
+    .kv-actions {
+        flex-direction: column !important; /* 变更为垂直排列 */
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    .kv-actions .btn {
+        width: 200px !important;     /* 统一手机端按钮宽度 */
+        min-width: auto !important;  /* 释放桌面端的 180px 锁死 */
+    }
+
+    /* 2. 修复 Schedule 区域 ASCII 字符图引起的横向溢出 */
+    .schedule-grid {
+        display: block !important;
+        min-height: auto !important;
+    }
+    .schedule-visual {
+        display: none !important;    /* 手机端无空间，直接隐藏字符画 */
+    }
+}
