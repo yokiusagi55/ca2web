@@ -1,0 +1,890 @@
+
+/* ==========================================================================
+   CIPHER:ANTARES II - 赛制看板复合系统全量样式
+   ========================================================================== */
+.tournament-hub-section {
+  width: 100%;
+  --t-red: #ff334d;
+  --t-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   1. About Banner 区域
+   ========================================================================== */
+.tournament-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  min-height: 320px;
+  overflow: hidden;
+  background-color: #05050c;
+  border-bottom: 2px solid var(--t-red);
+}
+
+.t-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+
+.t-banner.active {
+  display: flex;
+  animation: bannerFade 0.4s ease-in-out forwards;
+}
+
+@keyframes bannerFade {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       
+  object-position: center; 
+  z-index: 1;
+  filter: brightness(0.85) contrast(1.1) grayscale(0.2); 
+  margin-top: 30px;
+}
+
+.banner-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; 
+  background: linear-gradient(90deg, rgba(5, 5, 5, 0.95) 25%, rgba(5, 5, 5, 0.4) 80%),
+              linear-gradient(rgba(255, 51, 77, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+              linear-gradient(90deg, rgba(255, 51, 77, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
+  opacity: 0.4;
+}
+
+.banner-container {
+  position: relative;
+  z-index: 3; 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 50px;
+}
+
+.banner-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  color: var(--t-red);
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px rgba(255, 51, 77, 0.4);
+}
+
+.banner-title {
+  margin: 0;
+  padding: 0;
+  font-family: 'akirafont', 'Orbitron', sans-serif;
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.banner-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.92rem;
+  color: #a0a0aa;
+  letter-spacing: 0.1em;
+}
+
+.banner-deco-harness {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 12px;
+  width: 180px;
+}
+
+.banner-deco-harness .cross-pointer {
+  color: var(--t-red);
+  font-family: monospace;
+}
+
+.banner-deco-harness .line-pursuit {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--t-red), transparent);
+}
+
+.banner-controls {
+  position: absolute;
+  right: 10%;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.ctrl-btn {
+  background: #101014;
+  border: 1px solid var(--t-border);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px; 
+  transition: all 0.2s ease;
+}
+
+.ctrl-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+.ctrl-btn:hover {
+  border-color: var(--t-red);
+  background: var(--t-red);
+}
+
+
+/* ==========================================================================
+   2. 中控矩阵选择器样式
+   ========================================================================== */
+.control-matrix-menu {
+  background: #101014;
+  border-bottom: 1px solid var(--t-border);
+  width: 100%;
+}
+
+.matrix-menu-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 40px; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.primary-menu-pane {
+  display: flex;
+  gap: 14px; 
+  flex-shrink: 0;
+}
+
+.matrix-pane-divider {
+  width: 1px;
+  height: 45px; 
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.sub-pane-group {
+  display: none;
+  gap: 14px; 
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: center;
+}
+
+.sub-pane-group.active {
+  display: flex;
+}
+
+/* ----------------------------------------------------
+   选框核心样式（彻底撑大 + 内部元素纵向排列 + 文本高亮纯白）
+   ---------------------------------------------------- */
+.menu-btn, .sub-btn {
+  background: transparent;
+  border: 1px solid var(--t-border);
+  color: #ffffff !important; 
+  
+  /* 扩大框体尺寸与小圆角 */
+  padding: 16px 28px !important;  
+  min-width: 160px;                
+  border-radius: 6px !important;   
+  flex-shrink: 0;
+  
+  /* 强制 Flex 布局，把副标题压在主标题上方 */
+  display: inline-flex !important;
+  flex-direction: column !important; 
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 6px !important;              
+  
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* 顶部的微型等宽副标题 */
+.btn-sub {
+  display: block !important;             
+  font-family: 'Courier New', monospace !important; 
+  font-size: 0.72rem !important;         
+  color: rgba(255, 255, 255, 0.5) !important; 
+  font-weight: normal !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase;             
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* 底部的主标题 */
+.btn-main {
+  display: block !important;
+  font-size: 0.95rem !important;
+  font-weight: bold !important;
+  color: #ffffff !important;             
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* 一级主菜单交互 */
+.menu-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.menu-btn.active {
+  background: rgba(255, 51, 77, 0.08);
+  border-color: var(--t-red);
+}
+.menu-btn.active .btn-sub {
+  color: var(--t-red) !important; 
+}
+
+/* 二级菜单交互（常亮与 Hover 彻底 100% 纯白） */
+.sub-btn:hover {
+  border-color: #ffffff !important;     
+  background: rgba(255, 255, 255, 0.04);
+}
+.sub-btn:hover .btn-main {
+  color: #ffffff !important;
+}
+.sub-btn:hover .btn-sub {
+  color: rgba(255, 255, 255, 0.8) !important; 
+}
+
+.sub-btn.active {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #ffffff !important;     
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1); 
+}
+.sub-btn.active .btn-main {
+  color: #ffffff !important;             
+}
+.sub-btn.active .btn-sub {
+  color: rgba(255, 255, 255, 0.8) !important; 
+}
+
+
+/* ==========================================================================
+   📱 移动端自适应补丁
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-banner, .tournament-banner-wrapper {
+    height: 35vh;
+    padding: 0 6%;
+  }
+  .matrix-menu-container {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .matrix-pane-divider {
+    display: none; 
+  }
+  .primary-menu-pane, .sub-pane-group {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+  }
+  .menu-btn, .sub-btn {
+    flex: 1;
+    min-width: 45%;
+    padding: 10px 14px !important;
+  }
+  .banner-controls {
+    right: 5%;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   3. 下部动态信息面板样式
+   ========================================================================== */
+.tournament-info-panel {
+  background-color: #0a0a10;
+  width: 100%;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.info-panel-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* 动态显隐控制 */
+.info-pane-content {
+  display: none;
+  width: 100%;
+}
+
+.info-pane-content.active {
+  display: block;
+  animation: infoPaneFade 0.4s ease forwards;
+}
+
+@keyframes infoPaneFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 两栏网格布局 */
+.info-grid-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* 通用区块排版 */
+.info-block-section {
+  margin-bottom: 45px;
+}
+
+.info-block-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-block-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.info-block-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ==========================================================================
+   左侧：垂直时间轴样式
+   ========================================================================== */
+.info-timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-top: 25px;
+}
+
+/* 时间轴纵向主线 */
+.info-timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 11px;
+  bottom: 8px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 时间轴圆点节点 */
+.timeline-node {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #101014;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* 模拟打勾内部小点 */
+.timeline-node::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-time {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: monospace;
+}
+
+.timeline-title {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   右侧：战队栅格布局
+   ========================================================================== */
+.teams-league-group {
+  background: #101014;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 24px;
+  margin-top: 20px;
+}
+
+.league-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.league-icon {
+  color: #ff334d;
+  font-size: 0.8rem;
+}
+
+.league-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.team-card-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.team-logo-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.team-card-mini:hover .team-logo-placeholder {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.team-name-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   📱 移动端自适应补丁
+   ========================================================================== */
+@media (max-width: 992px) {
+  .info-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .teams-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .tournament-info-panel {
+    padding: 40px 0;
+  }
+  .info-panel-container {
+    padding: 0 20px;
+  }
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   4. 下部信息看板组件样式 (左宽右窄)
+   ========================================================================== */
+
+/* 外层大背景（整合成纯正深黑底色） */
+.info-matrix-panel {
+  width: 100%;
+  padding: 40px 0;
+  
+  background-color: rgba(10, 10, 15, 0.3);      /* 30% 透明度的暗色垫底 */
+  backdrop-filter: blur(5px);                  /* 核心：控制毛玻璃的模糊模糊程度 */
+  -webkit-backdrop-filter: blur(12px);          /* 兼容苹果 Safari 浏览器 */
+  
+  /* 可选增强：加一条若隐若现的顶部边框，能让玻璃切面更高级 */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.info-panel-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+/* 控制联动面板显隐 */
+.info-pane-content {
+  display: none;
+}
+.info-pane-content.active {
+  display: block;
+}
+
+/* 左右分栏 */
+.info-layout-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px; /* 左右两栏的间距 */
+  align-items: start;
+}
+
+/* 核心：给左右列容器都加 flex 和 gap，只要你复制子块，它们会自动产生间隔 */
+.info-left-pane, 
+.info-right-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 板块之间的间隔 */
+}
+
+/* ==========================================
+   左侧：独立的文本看板块
+   ========================================== */
+.text-flow-board {
+  background-color: #121216; /* 稍微提亮一点的深灰，跟纯黑底拉开层次 */
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.board-title {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.05em;
+}
+
+.board-paragraph {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 左侧特殊组件：垂直时间轴 */
+.vertical-timeline {
+  position: relative;
+  padding-left: 16px;
+  margin-top: 10px;
+}
+.vertical-timeline::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 4px; bottom: 4px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.timeline-node-item {
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+.timeline-node-item:last-child {
+  margin-bottom: 0;
+}
+.node-marker {
+  position: absolute;
+  left: -16px; top: 4px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #121216;
+  border: 2px solid #ffffff;
+}
+.node-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.node-meta { font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); }
+.node-title { font-size: 0.95rem; color: #ffffff; margin: 0; }
+.node-desc { font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); margin: 2px 0 0 0; line-height: 1.5; }
+
+/* ==========================================
+   右侧：独立的名单块
+   ========================================== */
+.roster-widget-box {
+  background-color: #121216; /* 同样独立的灰色背景 */
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.roster-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.roster-accent-tag {
+  /* 1. 设置核心颜色：特战英豪红 */
+  color: #ff334d; 
+  
+  font-size: 0.75rem;
+
+  text-shadow: 0 0 4px #ff334d, 
+               0 0 12px rgba(255, 51, 77, 0.7);
+               
+  /* 确保发光不被透明度削弱 */
+  opacity: 1 !important; 
+}
+.roster-group-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* 选手格子容器（内凹全黑，衬托卡片） */
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 一行稳稳排 4 个 */
+  gap: 12px; /* 💡 间距从 12px 缩小到 6px，让头像挨得更紧凑 */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 8px; /* 适当收紧内边距 */
+  border-radius: 4px;
+  align-items: start;
+}
+
+/* 单个名单卡片容器（已合并重复项） */
+.roster-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* 头像与下方文字的间距也稍微收紧 */
+}
+
+/* 旧版/备用：纯文字战队名称槽位 */
+.logo-slot {
+  width: 100%;
+  max-width: 56px;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 下方选手/战队名字文本微调 */
+.name-slot {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   新增长入：圆形可跳转头像核心样式
+   ========================================================================== */
+
+/* 圆形超链接容器 */
+.avatar-link {
+  display: block;
+  width: 100%;
+  max-width: 56px; /* 适配 3 列布局的黄金尺寸 */
+  aspect-ratio: 1; /* 锁定正方形比例 */
+  border-radius: 50%; /* 裁切为正圆形 */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* 极细圈边 */
+  background-color: #0d0d11; /* 图片未加载完成时的暗灰垫底色 */
+  box-sizing: border-box;
+  overflow: hidden; /* 切除超出圆圈的图片边缘 */
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 里面的头像/LOGO图片自适应 */
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保各种比例的头像图拉伸不变形，完美撑满圆形 */
+  display: block;
+}
+
+/* 鼠标悬停头像交互反馈 */
+.avatar-link:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px); /* 悬停轻微上浮 */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08); /* 极弱环境微光 */
+}
+
+/* ==========================================
+   移动端响应式断点
+   ========================================== */
+@media (max-width: 992px) {
+  .info-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* 赛制对阵图/说明图美化 */
+.board-bracket-img {
+  display: block;           /* 变成块级元素，独占一行 */
+  max-width: 100%;          /* 👑 核心：限制最大宽度为容器的 100%，绝对不会撑爆盒子 */
+  height: auto;             /* 高度自适应，防止图片变形 */
+  
+  margin: 18px 0;           /* 上下留出 18px 间距，让密集的文字有呼吸感 */
+  border-radius: 6px;       /* 柔和的微圆角 */
+  
+  /* 科技感外壳：若隐若现的白边 + 1px 细线 */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  /* 暗黑垫底：如果你的图片是透明底的 PNG，这层垫底能防止暗色线条在黑底下看不清 */
+  background: rgba(0, 0, 0, 0.3);
+  
+  /* 沉浸式阴影：深邃的投影让整张图“浮”在面板上，极具立体感 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              inset 0 0 12px rgba(255, 255, 255, 0.02);
+              
+  transition: border-color 0.3s ease; /* 为鼠标悬停准备的过渡动画 */
+}
+
+/* hover */
+.board-bracket-img:hover {
+  border-color: rgba(255, 51, 77, 0.3);
+}
+
+/* 鼠标滑过原图时，提示可以放大 */
+.board-bracket-img {
+  cursor: zoom-in;
+}
+
+/* 全局大图遮罩层初始状态（隐藏） */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 5, 12, 0.85); /* 呼应你主页的深海黑底色 */
+  backdrop-filter: blur(10px);     /* 高级毛玻璃背景 */
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;                  /* 确保图层在最顶端 */
+  
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: zoom-out;                /* 点击任意地方缩小回去 */
+}
+
+/* 当遮罩层被激活时淡入 */
+.zoom-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 放大后的图片样式 */
+.zoom-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8);
+  
+  /* 配合淡入做一层由小变大的优雅缩放动画 */
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 激活时图片展开到正常大小 */
+.zoom-overlay.active img {
+  transform: scale(1);
+}

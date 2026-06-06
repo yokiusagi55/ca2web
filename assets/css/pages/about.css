@@ -1,0 +1,457 @@
+/* ==========================================================================
+   CIPHER:ANTARES II - About Banner (图片背景硬核版)
+   ========================================================================== */
+
+.about-banner {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #05050c; /* 图片未加载完成时的安全底色 */
+}
+
+/* ----------------------------------------------------
+   【核心优化】图片本体：强制撑满、比例不失真
+   ---------------------------------------------------- */
+.banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 绝杀：类似 background-size: cover，图片永远不会变扁 */
+  object-position: center; /* 始终居中对齐图片核心区域 */
+  z-index: 1;
+  
+  /* 可选机能风微调：降低图片原始对比度，或者加一点冷色调滤镜 */
+  filter: brightness(0.5) contrast(1.1) grayscale(0.2);
+  margin-top: 30px;
+}
+
+/* ----------------------------------------------------
+   【硬核滤镜层】压暗 + 电子网格线
+   ---------------------------------------------------- */
+.banner-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* 压在图片（z-index: 1）上方，但在文字下方 */
+  
+  /* 复合渐变魔法：
+    1. 前半段纯黑渐变，把图片左侧完全压暗，确保上面的明亮文字 100% 易读
+    2. 后半段叠加 20px 的科技电子微网格，让普通图片瞬间拥有像素风/赛博感
+  */
+  background: linear-gradient(90deg, rgba(5, 5, 5, 0.95) 25%, rgba(5, 5, 5, 0.4) 80%),
+              linear-gradient(rgba(255, 51, 77, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+              linear-gradient(90deg, rgba(255, 51, 77,  0.03) 1px, transparent 1px) 0 0 / 20px 20px;
+    opacity: 0.4;
+}
+
+/* ----------------------------------------------------
+   文字与排版（浮在最上层）
+   ---------------------------------------------------- */
+.banner-container {
+  position: relative;
+  z-index: 3; /* 稳稳浮在最表面 */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 50px;
+}
+
+.banner-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  color:  #ff334d;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px rgba(255, 51, 77, 0.4);
+}
+
+.banner-title {
+  margin: 0;
+  padding: 0;
+  font-family: 'akirafont', 'Orbitron', sans-serif;
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.banner-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.92rem;
+  color: #a0a0aa;
+  letter-spacing: 0.1em;
+}
+
+/* 装饰线束 */
+.banner-deco-harness {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 12px;
+  width: 180px;
+}
+
+.banner-deco-harness .cross-pointer {
+  color: #ff334d;
+  font-family: monospace;
+}
+
+.banner-deco-harness .line-pursuit {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #ff334d, transparent);
+}
+
+/* ==========================================================================
+   📱 移动端自适应补丁
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-banner {
+    height: 35vh;
+    padding: 0 6%;
+  }
+  .banner-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/* ==========================================================================
+下拉抽屉
+   ========================================================================== */
+.tactical-drawer-container {
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+/* ⚡️ 🔥【核心修复】：改为 relative 融入文档流，展开时自然撑开父容器并推开下方元素 */
+.creator-message-panel {
+  position: absolute;
+  width: 100%;
+  height: 0; /* JS 动态控制 */
+  overflow: hidden;
+  
+  /* ⚡️ 严格保留：黑灰色半透明 + 高级磨砂玻璃滤镜 */
+  background: linear-gradient(180deg, rgba(15, 15, 18, 0.92) 0%, rgba(20, 20, 22, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  /* ⚡️ 严格保留：下边缘战术红线 */
+  border-bottom: 2px solid #ff334d;
+  box-sizing: border-box;
+  will-change: height;
+}
+
+/* 面板内部排版 */
+.panel-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* 当激活打开时，内部文字渐显 */
+.creator-message-panel.is-active .panel-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.manifesto-tag {
+  font-family: monospace;
+  color: #ff334d; /* 战术红 */
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.panel-deco-line {
+  height: 1px;
+  background: linear-gradient(90deg, #ff334d 0%, rgba(255,255,255,0.1) 100%);
+  margin: 10px 0 25px 0;
+}
+
+.panel-body h4 {
+  font-size: 1.1rem;
+  color: #e5e5e5;
+  margin-bottom: 12px;
+}
+
+.panel-body p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #aaaaaa;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   拉环小尾巴基础样式（保持 top: 0 基准，配合 JS 精准跟手）
+   -------------------------------------------------------------------------- */
+.pull-tab-trigger {
+  position: absolute;
+  top: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  z-index: 1000;
+  user-select: none;
+  touch-action: none;
+}
+
+.pull-tab-trigger:active {
+  cursor: grabbing;
+}
+
+/* 连接线：从上往下垂落 */
+.pull-line {
+  width: 2px;
+  height: 25px;
+  background: linear-gradient(180deg, #ff334d 0%, #555555 100%);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 拉环把手本体：工业解构徽章风格 */
+.pull-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #141416;
+  border: 1px solid #333335;
+  border-top: 2px solid #ff334d;
+  padding: 6px 12px;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pull-icon {
+  width: 16px;
+  height: 16px;
+  fill: #ff334d;
+  transition: transform 0.3s ease;
+}
+
+.pull-text {
+  font-family: monospace;
+  font-size: 10px;
+  color: #888888;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+
+/* ==========================================================================
+   🔥 展开状态下的“内部解构”控制链（安全悬浮在 relative 面板上方）
+   ========================================================================== */
+
+/* 1. 彻底隐藏垂落连线与提示文本 */
+.tactical-drawer-container.is-open .pull-line {
+  height: 0;
+  overflow: hidden;
+  display: none;
+}
+.tactical-drawer-container.is-open .pull-text {
+  display: none;
+}
+
+/* 2. 剥离外框装饰，并将把手逆向推入抽屉内部 (悬浮在红线内侧上方约 20px 处) */
+.tactical-drawer-container.is-open .pull-handle {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  /* 💡 核心：子级利用负 Y 轴偏移往上跳过红线，由于父级没有 overflow:hidden，绝对不会被拦截或切断 */
+  transform: translateY(-20px); 
+}
+
+/* 3. 翻转箭头朝上，化身为向上关闭的 Icon */
+.tactical-drawer-container.is-open .pull-icon {
+  transform: rotate(180deg);
+  animation: internalChevronBounce 1.8s infinite ease-in-out;
+}
+
+/* 4. 纯净箭头的专属内部 Bounce 跳动规律 */
+@keyframes internalChevronBounce {
+  0%, 100% { transform: rotate(180deg) translateY(0); }
+  50% { transform: rotate(180deg) translateY(4px); } 
+}
+
+/* 5. 拖拽激活时自动挂起动画 */
+.tactical-drawer-container.is-open .pull-tab-trigger:active .pull-icon {
+  animation-play-state: paused;
+}
+
+
+
+/* ==========================================================================
+   MEMBER LIST 样式
+   ========================================================================== */
+/* 成员板块主容器 */
+.member_section_simple {
+    position: relative;
+    z-index: 1; /* 严格死锁底层，确保能被上方高层级的下拉面板完全覆盖 */
+    
+    width: 100%;
+    /* 核心修改：利用顶部外边距将板块整体下移，彻底错开未展开时的 PULL 拉环控件位置 */
+    margin-top: 140px; 
+    padding: 40px 0;
+    text-align: center;
+    color: #ffffff;
+    box-sizing: border-box;
+    margin-bottom: 60px;
+}
+
+/* 机能风板块标题 */
+.member_title_simple {
+    font-family: 'Akira', 'akirafont', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: -90px 0 60px 0;
+    text-transform: uppercase;
+}
+
+/* 双排流垂直包裹器 */
+.member_list_simple {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 60px;             /* 上下两排的垂直间距 */
+    width: 100%;
+    max-width: 1000px;     /* 拓宽容器以容纳大尺寸头像 */
+    margin: 0 auto;
+}
+
+/* 单排矩阵分流器 */
+.member_matrix_row {
+    display: flex;
+    justify-content: center; /* 核心：使下排 4 个元素自动居中对齐 */
+    align-items: flex-start;
+    gap: 35px;              /* 头像之间的横向间距 */
+    width: 100%;
+}
+
+/* 单个成员结构块 */
+.member_item_simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;             
+    width: 160px;           /* 锁死单体宽度，防止文本长度不一导致对齐错位 */
+}
+
+/* 链接包裹器 */
+.member_link_simple {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+}
+
+/* 悬停扩散背景伪元素 */
+.member_link_simple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 210px;          /* 适配 150px 头像的扩散圆直径 */
+    height: 210px;
+    background: rgba(255, 255, 255, 0.04); 
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.6); 
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.4s ease;
+}
+
+/* 悬停激活：背景圆盘扩散淡入 */
+.member_link_simple:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 头像图片主体 */
+.member_img_simple {
+    width: 150px;          /* 放大后的头像高度与宽度 */
+    height: 150px;         
+    object-fit: cover;     
+    border-radius: 50%;    
+    border: 3px solid rgba(187, 16, 16, 0); 
+    display: block;
+    position: relative;
+    z-index: 3;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* 悬停激活：头像轻微放大并亮起白边 */
+.member_link_simple:hover .member_img_simple {
+    transform: scale(1.04);
+    border-color: #ffffff; 
+}
+
+/* 底部成员轻量描述文本 */
+.member_desc_simple {
+    font-size: 0.85rem;    
+    color: #88888c;        
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;     
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 移动端响应式流式布局 */
+@media (max-width: 768px) {
+    .member_section_simple {
+        margin-top: 80px;  /* 移动端同步缩减上方留白 */
+        padding: 40px 0;
+    }
+    .member_title_simple {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    .member_list_simple {
+        gap: 35px;
+    }
+    .member_matrix_row {
+        flex-wrap: wrap; /* 移动端取消硬性双排，允许弹性向下换行 */
+        gap: 20px;
+    }
+    .member_item_simple {
+        width: 120px;
+    }
+    .member_link_simple::before {
+        width: 160px;      
+        height: 160px;
+    }
+    .member_img_simple {
+        width: 110px;      
+        height: 110px;
+    }
+    .member_desc_simple {
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,236 @@
+:root {
+  /* ===============================
+     主色系（红黑霓虹 · 七月流火）
+     =============================== */
+
+  /* 背景：带红调的深黑 */
+  --color-bg: #070509;
+  --color-bg-soft: #12080d;
+
+  /* 主色：恒星红（不深、不闷） */
+  --color-primary: #E35A3A;
+
+  /* 辅助红（结构 / 分割用） */
+  --color-secondary: #7A1F24;
+
+  /* 强调色：更亮的流火 */
+  --color-accent: #e62e00;
+
+  /* ===============================
+     文字
+     =============================== */
+
+  --color-text-main: #F2E9EB;
+  --color-text-muted: #9A7A80;
+
+  /* ===============================
+   霓虹效果（热霓虹 · 明显可见）
+   =============================== */
+
+--glow-primary:
+  0 0 6px  rgba(255, 106, 61, 0.45),
+  0 0 14px rgba(255, 106, 61, 0.65),
+  0 0 28px rgba(227, 90, 58, 0.55);
+
+--glow-accent:
+  0 0 8px  rgba(255, 140, 90, 0.55),
+  0 0 18px rgba(255, 106, 61, 0.75),
+  0 0 36px rgba(227, 90, 58, 0.6);
+
+
+  /* ===============================
+     字体
+     =============================== */
+:root {
+  /* 标题字体：
+     英文使用你注册的 akirafont
+     中文使用你注册的 homo-black（900字重）
+  */
+  --font-title:
+    'akirafont',
+    'homo-sc-black',
+    sans-serif;
+
+  /* 正文字体：
+     英文使用 Inter
+     中文使用 Noto Sans SC（系统没有时回退到 sans-serif）
+  */
+  --font-body:
+    'Inter',
+    'Noto Sans SC',
+    sans-serif;
+
+  /* 如果你仍然需要单独控制中英文标题，也建议保留这两个变量 */
+  --font-en-title: 'akirafont';
+  --font-cn-title: 'homo-black';
+}
+
+  /* ===============================
+     布局
+     =============================== */
+
+  --max-width: 1200px;
+}
+
+/* ===============================
+   全局重置
+   =============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   页面基础
+   =============================== */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  padding-top: 72px;
+  margin: 0;
+  overflow-x: hidden; /* 只禁横向 */
+}
+
+html {
+  scroll-behavior: smooth; /* 只影响锚点，不影响滚轮 */
+}
+
+
+.ParticleField {
+  position: fixed;
+  inset: 0;
+  z-index: 1;         /* 在背景 */
+  pointer-events: none;
+}
+
+#field-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* =====================================================
+   全局背景配置 (正文背景图)
+   ===================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: var(--dark-bg); /* 底色兜底 */
+
+  background-image: 
+    url('../images/venue/main-bg.png'); 
+  
+  background-attachment: fixed;    /* 固定背景，产生视差滚动感 */
+  background-position: center top; /* 1080x1920 图片建议从顶部对齐 */
+  background-repeat: no-repeat;
+  background-size: cover;          /* 等比缩放撑满 */
+}
+
+/* =====================================================
+   容器透明化处理 (关键)
+   ===================================================== */
+
+.section {
+  /* 必须取消之前的背景色，否则会遮挡 body 的图 */
+  background: transparent !important; 
+}
+
+
+
+/* 1. 让 body 变成占满全屏的纵向 Flex 容器 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 核心：确保 body 至少与浏览器可视区域一样高 */
+    margin: 0;         /* 消除浏览器默认外边距 */
+}
+
+/* 2. 让主体内容区域自动扩张，吃掉所有剩余空间 */
+.page-content {
+    flex: 1;           /* 核心：自动分配剩余空间，无内容时也会把 footer 牢牢顶在最底下 */
+    position: relative; 
+}
+
+/* 3. 页脚样式微调 */
+.main-footer {
+    position: relative;
+    z-index: 100;
+    background: #000;
+    padding: 60px var(--side-padding);
+    border-top: 1px solid var(--july-flame);
+    margin-top: auto;  /* 保险机制：在某些极端布局下依然强制置底 */
+}
+
+
+
+/* ===============================
+   Presented By 样式说明  已放footer
+   =============================== */
+.kv-actions {
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
+  flex-wrap: wrap;
+}
+
+.presented-by {
+  display: flex;
+  align-items: center; /* 九宫格与右侧整体垂直居中 */
+  gap: 10px;           /* 👈 拉近九宫格与文字的间距，原为 15px */
+  pointer-events: none;
+  margin-top: 8px; 
+}
+
+/* 45度旋转九宫格印花 */
+.presented-by::before {
+  content: "";
+  flex-shrink: 0;      /* 防止被压缩 */
+  width: 22px; 
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='rotate(45 12 12)'%3E%3Crect x='5' y='5' width='3' height='3' fill='white'/%3E%3Crect x='10.5' y='5' width='3' height='3' fill='white'/%3E%3Crect x='16' y='5' width='3' height='3' fill='white'/%3E%3Crect x='5' y='10.5' width='3' height='3' fill='white'/%3E%3Crect x='10.5' y='10.5' width='3' height='3' fill='white'/%3E%3Crect x='16' y='10.5' width='3' height='3' fill='white'/%3E%3Crect x='5' y='16' width='3' height='3' fill='white'/%3E%3Crect x='10.5' y='16' width='3' height='3' fill='white'/%3E%3Crect x='16' y='16' width='3' height='3' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+  opacity: 0.9;
+}
+
+/* 文字内容容器：上下排列 */
+.presented-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左对齐 */
+  gap: 2px;               /* 两行字之间的行间距 */
+}
+
+/* 上行：主标题 */
+.main-text {
+  font-size: 18px; 
+  font-family: var(--font-title);
+  color: rgba(255, 255, 255, 0.9); 
+  letter-spacing: 0.05em; 
+  text-transform: uppercase;
+  font-weight: 700; 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* 下行：经纬度中括号 */
+.geo-coord {
+  font-size: 11px;       /* 坐标稍微小一点才有情报感 */
+  font-family: 'Courier New', monospace; /* 使用等宽字体更有代码感 */
+  color: rgba(255, 255, 255, 0.5); 
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+
+.section.intro {
+  padding-top: 45px !important; /* 根据视觉微调，尝试改成 20px 或 40px */
+}
+
+/* 标题样式：消除默认 margin 导致的空隙 */

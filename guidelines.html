@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIPHER:ANTARES | 引导手册</title>
+  <link rel="icon" href="../../assets/images/logo/ca2logo.png" type="image/png" sizes="32x32">
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/guide.css" />
+</head>
+
+<body>
+
+<!-- ===============================
+     顶部导航（独立存在）
+     =============================== -->
+<header class="site-header">
+  <div class="nav-inner">
+   <a href="index.html" class="logo">
+  <span class="logo-text">CIPHER:ANTARES II</span>
+</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" style="display: none;">
+    
+    <label for="nav-toggle" class="menu-button">
+      <span class="hamburger"></span>
+    </label>
+
+    <div class="header-right">
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="introduction.html">INTRO</a>
+        <a href="highlight.html">HIGHLIGHT</a>
+        <a href="guidelines.html">GUIDE</a>
+        <a href="about.html">ABOUT US</a>
+      </nav>
+
+      <div class="nav-music-btn" id="bgm-btn">
+        <div class="music-bars"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        <span class="music-text">BGM</span>
+        <audio id="main-audio" loop><source src="../assets/music/ca2mix.mp3" type="audio/mp3"></audio>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+<!-- ===============================
+     制品栏banner和选框
+     =============================== -->
+<section class="goods-hub-section">
+
+  <div class="goods-banner-wrapper">
+
+    <div class="g-banner" id="banner-spectator">
+      <img src="../../assets/images/about/banner.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GUIDE_ ]</div>
+        <h1 class="banner-title">SPECTATOR<br> GUIDE</h1>
+        <p class="banner-subtitle">引导手册 | 观赛须知</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-banner" id="banner-faq">
+      <img src="../../assets/images/about/banner.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GUIDE_ ]</div>
+        <h1 class="banner-title">FAQ LIST</h1>
+        <p class="banner-subtitle">引导手册 | 常见问题</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-banner" id="banner-venue">
+      <img src="../../assets/images/about/banner.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GUIDE_ ]</div>
+        <h1 class="banner-title">Venue<br>Navigation</h1>
+        <p class="banner-subtitle">引导手册 | 场馆动线</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-controls">
+      <button class="ctrl-btn prev" id="hub-banner-prev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="ctrl-btn next" id="hub-banner-next">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="goods-matrix-menu">
+    <div class="goods-menu-container">
+    
+      <div class="goods-tab-group">
+        <button class="goods-tab-btn active" data-banner="banner-spectator">
+          <span class="tab-sub">SECTION_01</span>
+          <span class="tab-main">观赛须知 </span>
+        </button>
+        <button class="goods-tab-btn" data-banner="banner-faq">
+          <span class="tab-sub">SECTION_02</span>
+          <span class="tab-main">常见问题</span>
+        </button>
+        <button class="goods-tab-btn" data-banner="banner-venue">
+          <span class="tab-sub">SECTION_03</span>
+          <span class="tab-main">场馆动线</span>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- 📢 修复：#info-banner-number-stage 追加 info-pane-content 类名 -->
+<div class="info-matrix-panel info-pane-content" id="info-banner-spectator">
+  <div class="info-panel-container reveal">
+    <div class="highlight-center-layout">
+      <div class="text-flow-board">
+        <h3 class="board-title">观赛须知</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">
+          1. 排队检票期间，请听从 Staff 指引有序排队，并提前打开核销页面以提高入场效率。入场后请遵循场馆动线安排，在指定区域内有序观赛，共同维护良好的现场秩序。<br>
+<br>
+2. 根据 Livehouse 场地方要求，本次活动不开放自带饮料入场。感谢各位选手及观众朋友的理解与配合。<br>
+<br>
+3. 本次活动允许重复出入场。赛事组将在首次入场时发放杜邦手环作为再入场凭证，请妥善保管；如凭证遗失，请向工作人员出示票券核销页面确认购票信息。<br>
+<br>
+4. 场馆二楼为 Staff 及场地方工作人员工作区域，非工作人员请勿进入，以免影响现场运营。<br>
+<br>
+5. 观赛期间我们欢迎任何形式的应援，但请务必不要影响他人的观赛体验。<br>
+<br>
+6. 为保障现场观赛秩序及人身安全，观赛期间严禁冲台。如出现冲台等影响活动正常进行的行为，赛事组有权视情况请离现场。<br>
+<br>
+7. 本次赛事限制使用三脚架、长柄稳定器等可能影响通行或遮挡他人视线的拍摄设备。对于不配合现场管理的情况，赛事组有权要求停止使用或请离现场。<br>
+<br>
+8. 为保护场地设备及现场人员安全，本场活动全程禁止砸棒、扔棒等危险行为。若出现相关行为，赛事组有权判定比赛成绩无效、取消参与资格或请离现场；如造成场地设施损坏，需按实际损失进行赔偿。<br>
+<br>
+9. 本次活动全程禁止在场馆内吸烟（包括电子烟）。如有吸烟需求，请移步至场馆指定区域或场馆外进行。<br>
+<br>
+10. 请妥善保管个人随身物品及贵重财物。因个人原因造成的物品遗失，赛事组及场地方恕不承担相关责任。<br>
+<br>
+11. 本次活动将开放场贩现货售卖。如有购买需求，请遵循现场指引有序排队，文明购买。<br>
+<br>
+12. 如在活动期间遇到任何问题、突发情况或需要帮助，请第一时间联系附近 Staff，我们将尽力为各位提供协助。<br>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 📢 修复：#info-banner-extra 一样追加 info-pane-content 类名 -->
+<div class="info-matrix-panel info-pane-content" id="info-banner-faq">
+  <div class="info-panel-container reveal">
+    <div class="highlight-center-layout">
+      <div class="text-flow-board">
+        <h3 class="board-title">常见问题</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">
+          敬请期待
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 📢 修复：#info-banner-venue 一样追加 info-pane-content 类名 -->
+<div class="info-matrix-panel info-pane-content" id="info-banner-venue">
+  <div class="info-panel-container reveal">
+    <div class="highlight-center-layout">
+      <div class="text-flow-board">
+        <h3 class="board-title">场馆动线</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">
+          敬请期待
+        </p>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 页脚区域 -->
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img
+          src="../../assets/images/logo/half-logo.png"
+          alt="CIPHER:ANTARES II"
+        >
+
+        <div class="presented-by">
+          <div class="presented-content">
+
+            <span class="main-text">
+              PRESENTED BY AURORALLY.
+            </span>
+
+            <span class="geo-coord">
+              [ 30.5928° N, 114.3055° E ] | feat. Raia Project
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="copyright">
+        © 2026 From_Aurorally. ALL RIGHTS RESERVED.
+      </p>
+
+      <p class="slogan">
+        All of your witness.
+      </p>
+
+    </div>
+
+    <!-- SNS LINKS -->
+
+    <div class="footer-links">
+
+      <!-- BILIBILI -->
+
+      <a
+        href="https://space.bilibili.com/3461579630708768/"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="Bilibili"
+      >
+        <i class="fa-brands fa-bilibili"></i>
+      </a>
+
+      <!-- QQ GROUP -->
+
+      <a
+        href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5QK3-1fl89k9BeYAehmGG2VY865gLKZG&authKey=m26QxLhemv8t9h1xnzWl4G32vc2Mon6k4yRUpjU6hcfHFciSiLjvbk11tkfnHjHq&noverify=0&group_code=954858240"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="QQ Group"
+      >
+        <i class="fa-brands fa-qq"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- ===============================
+     JS
+     =============================== -->
+<script src="assets/js/pages/guide.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<!-- Lenis 核心库 -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</body>
+</html
