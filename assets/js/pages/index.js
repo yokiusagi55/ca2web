@@ -1008,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ==================================================== 
-   LINEUP 移动端原生拖拽与视频流联动控制中心
+   LINEUP 移动端：原生横向拖拽与视频流联动控制中心（完美首屏初始化版）
    ==================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const viewport = document.querySelector('.card_viewport');
@@ -1070,4 +1070,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 开启扫描器监听
     cards.forEach(card => observer.observe(card));
+
+    // ----------------==================================
+    // 🏹 【新增加固】：移动端首屏主动激活第 1 张卡片视频（防静止白屏）
+    // ----------------==================================
+    const firstCard = cards[0];
+    if (firstCard) {
+        // 先手动给第一张卡片加上激活类（防止DOM未反应过来）
+        firstCard.classList.add('active'); 
+        
+        const firstVideoSrc = firstCard.getAttribute('data-video');
+        if (videoPlayer && firstVideoSrc) {
+            videoPlayer.src = firstVideoSrc;
+            videoPlayer.setAttribute('data-current', firstVideoSrc);
+            videoPlayer.load();
+            
+            // ⚠️ 注意：部分移动端浏览器（如 iOS Safari）要求视频必须是静音 (muted) 状态才允许自动播放
+            // 如果你的 html 里 <video> 没有写 muted，以下这一句能强行帮你在 JS 里破除自动播放限制
+            videoPlayer.muted = true; 
+            
+            videoPlayer.play().catch((e) => {
+                console.log("首屏第一张卡片自动播放受到系统拦截，等待用户手动拖拽滑屏激活:", e);
+            });
+            videoBg?.classList.add('is_playing');
+        }
+    }
 });
