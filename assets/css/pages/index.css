@@ -983,6 +983,67 @@ body {
 }
 
 
+/* =====================================================
+    移动端响应式优化 (针对屏幕宽度小于 992px 的设备)
+   ===================================================== */
+@media (max-width: 992px) {
+    /* 1. 调整外层容器在手机端的内边距 */
+    .section.intro {
+        padding: 60px 20px 40px 20px;
+    }
+
+    /* 2. 核心修复：改变排列方向为垂直向下，并清除桌面端强加的 600px 限制 */
+    .intro-grid {
+        flex-direction: column;
+        gap: 40px;
+        min-width: auto !important; /* 彻底瓦解混入的 min-width 限制 */
+    }
+
+    /* 3. 释放文字区的最小宽度，使其占满横向屏幕 */
+    .intro-content {
+        min-width: auto !important;
+        width: 100%;
+    }
+    
+    .tagline {
+        font-size: 1.8rem; /* 稍微缩小手机端标题字号 */
+        margin-bottom: 15px;
+    }
+    
+    .main-desc p {
+        font-size: 1.15rem; /* 优化手机端阅读字号 */
+        line-height: 1.6;
+    }
+
+    /* 4. 优化进化组件：防止横向拉伸导致文字或 SVG 图标溢出 */
+    .evolution-path {
+        padding: 15px 15px 15px 20px; /* 紧凑手机端内边距 */
+        gap: 15px;
+        min-height: auto;
+    }
+
+    .logo-box img {
+        height: 50px; /* 稍微缩小两侧的 Logo 尺寸 */
+    }
+
+    .evolution-line {
+        flex: 1; /* 让中间的脉搏线在低分辨率手机上自动伸缩 */
+        min-width: 50px;
+        max-width: 120px;
+    }
+
+    /* 5. 修复右侧视频容器：占满屏幕宽度，不再往右侧硬撑 */
+    .intro-visual {
+        width: 100%;
+        flex: none !important; /* 废除桌面端的 flex: 0 0 58% */
+    }
+
+    /* 6. 装饰性 UI 在手机端微调 */
+    .cipher-ui-deco.top-style {
+        margin-bottom: 10px;
+    }
+}
+
 
 
 /* ========================================
