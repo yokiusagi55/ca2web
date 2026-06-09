@@ -1,0 +1,793 @@
+@font-face {
+  font-family: 'akirafont'; 
+  /* 注意：../ 表示返回上一级，进入 fonts 文件夹 */
+  src: url("/assets/fonts/akira-exp.woff2") format('woff2'); /* 优先用 woff2 */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'homo-sc-black'; 
+  /* 注意：../ 表示返回上一级，进入 fonts 文件夹 */
+  src: url("/assets/fonts/homo-sc-black.woff2") format('woff2'); /* 优先用 woff2 */
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===============================
+   1. 基础全局样式
+   =============================== */
+.logo { text-decoration: none; }
+
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.btn.primary {
+  background: var(--color-primary);
+  color: #000;
+  box-shadow: var(--glow-primary);
+}
+
+.btn.ghost {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ===============================
+   2. 顶部导航
+   =============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 必须是全场最高，压过 Hero(30) 和 HUD */
+  z-index: 9999; 
+  background: rgba(7, 8, 12, 0.6);
+  backdrop-filter: blur(6px);
+  border-bottom: 1.5px solid #e60036;
+  
+  /* 关键：让 header 容器本身不挡鼠标，点击可以穿透到下方的视频/Logo */
+  pointer-events: none; 
+}
+
+.nav-inner {
+  /* 恢复导航内容的点击能力 */
+  pointer-events: auto; 
+  
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.main-nav { 
+  display: flex; 
+  gap: 2rem; 
+}
+
+/* 导航链接基础样式 */
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #ccc; /* 默认浅灰色，增加悬停对比度 */
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* --- 暗橘红射线动效（热霓虹） --- */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+
+  /* 七月流火 · 暗橘红渐变射线 */
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 106, 61, 0.35) 20%,
+    #E60036 60%,
+    #fff1e8 95%,
+    #fff1e8 100%
+  );
+
+  /* 热霓虹光晕（不是激光） */
+  box-shadow:
+    0 0 6px rgba(255, 106, 61, 0.6),
+    0 0 16px rgba(227, 90, 58, 0.55);
+
+  /* 初始状态：从右侧缩回 */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 悬停状态：射线从左侧划出 */
+.main-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* 悬停状态：射线从左侧划出 */
+.main-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --- Logo 容器（新增 Flex 布局） --- */
+.logo {
+  /* 核心：让图片和文字并排并垂直居中 */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* 图片和文字之间的间距 */
+  flex-shrink: 0; /* 极其重要：防止 Logo 在空间不足时被菜单挤扁 */
+
+  /* 保留原有字体设置 */
+  font-family: 'akirafont', sans-serif; 
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: #ffffff !important;
+  font-weight: normal;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap; 
+}
+
+/* --- 新增：图片 Logo 样式 --- */
+.logo-img {
+  height: 32px; /* 根据你的文字高度调整，1.25rem 约为 20-24px，30px 左右比较大气 */
+  width: auto;
+  display: block;
+  /* 初始滤镜：给图片也加一点点淡淡的发光，呼应文字 */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  transition: all 0.3s ease;
+}
+
+/* --- 悬停效果扩展到图片 --- */
+.logo:hover {
+  color: #e60036 !important;
+  text-shadow:
+    0 0 10px rgba(255, 106, 61, 0.7),
+    0 0 24px rgba(227, 90, 58, 0.6);
+  opacity: 0.9;
+}
+
+.logo:hover .logo-img {
+  /* 悬停时图片微微放大，并染上红光（如果你的 Logo 是白色的） */
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(230, 0, 54, 0.6));
+}
+
+/* ===============================
+   移动端导航适配 (Media Query)
+   =============================== */
+/* --- 默认隐藏开关 --- */
+.menu-button { display: none; }
+
+@media (max-width: 992px) {
+  /* 🎯 【安全防御】锁死移动端视口，斩断一切右侧溢出和滑动的可能 */
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* 1. 显示汉堡按钮 */
+  .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative; /* 🎯 【核心微调】必须加 relative！否则下面 absolute 的三条杠在小屏上会错位乱飞撑开右侧 */
+  }
+  
+  .hamburger, .hamburger::before, .hamburger::after {
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: 0.3s;
+  }
+  
+  /* 🎯 【精准居中】确保三条杠在 30x30 的容器内绝对居中，避免微小溢出 */
+  .hamburger {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hamburger::before { content: ""; top: -8px; left: 0; }
+  /* 🎯 【动画顺畅】将 bottom: -8px 改为 top: 8px，配合你下面的变叉号 transform 旋转时轴心更稳 */
+  .hamburger::after { content: ""; top: 8px; left: 0; }
+
+  /* 2. 改造 header-right 为全屏侧边栏 */
+  .header-right {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 初始藏在右侧 */
+    
+    /* 🎯 【屏幕自适应】 */
+    width: 75%;
+    max-width: 320px; /* 🎯 【平板适配】限制最大宽度。防止在平板大屏幕上 75% 显得过于巨大 */
+    
+    height: 100vh;
+    height: 100dvh; /* 🎯 【全面屏适配】动态视口高度，防止被 iPhone / Android 手机自带的底部虚拟浏览器工具栏遮挡 */
+    background: rgba(7, 8, 12, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* 🎯 【Safari兼容】确保苹果手机上毛玻璃效果生效 */
+    
+    /* 内部元素改为纵向排列 */
+    display: flex; /* 🎯 【结构补丁】确保 flex 布局在 fixed 定位下 100% 生效 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem; /* 增加导航和音乐之间的间距 */
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    
+    /* 🎯 【防挤压溢出】 */
+    box-sizing: border-box;
+    padding: 40px 20px;
+  }
+
+  /* 3. 展开状态 */
+  .nav-toggle:checked ~ .header-right {
+    right: 0;
+  }
+
+  /* 4. 音乐控件微调：在菜单里要显眼一点 */
+  .nav-music-btn {
+    position: relative;
+    /* 确保在 nav-inner 内部也是高层级 */
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer !important; /* 强制显示手型 */
+    pointer-events: auto !important; /* 强制开启点击 */
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .music-text {
+    display: block !important; /* 菜单里可以显示文字 */
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  /* 5. 导航项微调 */
+  .main-nav {
+    display: flex; /* 🎯 【结构补丁】确保 flex 生效 */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%; /* 🎯 【宽度锁定】让导航容器占满侧边栏，防止内容因挤压换行 */
+  }
+  
+  .main-nav a {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;        /* 🎯 【点击域扩大】方便手机端手指点击 */
+    text-align: center; /* 🎯 文字居中 */
+  }
+
+  /* 6. 汉堡变叉号 */
+  .nav-toggle:checked ~ .menu-button .hamburger { background: transparent; }
+  .nav-toggle:checked ~ .menu-button .hamburger::before { transform: rotate(45deg); top: 0; }
+  .nav-toggle:checked ~ .menu-button .hamburger::after { transform: rotate(-45deg); top: 0; } /* 🎯 【动画修复】改为 top: 0 归位后旋转，生成的 X 完美居中不抖动 */
+}
+
+/* ==================================================== */
+/* 🎯 【全量新增】极端小屏/窄屏手机完美适配 (宽度小于 480px) */
+/* ==================================================== */
+@media (max-width: 480px) {
+  .header-right {
+    width: 100%;       /* 🎯 在纯手机端，侧边栏直接改为 100% 全屏，彻底解决任何比例下的露白问题 */
+    max-width: 100vw;
+    gap: 2.5rem;       /* 🎯 稍微压缩纵向间距，防止小屏/矮屏手机（如 iPhone SE）垂直方向塞不下导致死锁 */
+  }
+}
+
+
+
+/* 音乐按钮在导航栏中的样式 */
+.nav-music-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 4px;
+
+  /* 改为暗橘红体系 */
+  border: 1px solid rgba(255, 106, 61, 0);
+
+  transition: all 0.3s ease;
+}
+
+.nav-music-btn:hover {
+  border-color: rgba(255, 106, 61, 0.45);
+  background: rgba(255, 106, 61, 0.06);
+}
+
+/* 迷你跳动条 */
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  width: 14px;
+}
+
+.music-bars .bar {
+  width: 2px;
+  height: 100%;
+
+  /* 暗橘红发光条 */
+  background: #ff6a3d;
+  border-radius: 1px;
+
+  transition: height 0.2s ease;
+}
+
+/* 播放态动画 */
+.nav-music-btn.playing .bar {
+  animation: music-jump 0.6s ease-in-out infinite alternate;
+}
+
+.nav-music-btn.playing .bar:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.nav-music-btn.playing .bar:nth-child(2) {
+  animation-delay: 0.3s;
+  height: 60%;
+}
+
+.nav-music-btn.playing .bar:nth-child(3) {
+  animation-delay: 0.2s;
+  height: 80%;
+}
+
+/* 热霓虹跳动动画 */
+@keyframes music-jump {
+  0% {
+    height: 20%;
+  }
+  100% {
+    height: 100%;
+    box-shadow:
+      0 0 6px rgba(255, 106, 61, 0.75),
+      0 0 14px rgba(227, 90, 58, 0.55);
+  }
+}
+
+/* BGM 文字 */
+.music-text {
+  font-size: 11px;
+  color: #ff6a3d;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  text-shadow:
+    0 0 6px rgba(255, 106, 61, 0.6);
+}
+
+/* 保证层级 */
+.nav-music-btn {
+  position: relative;
+  z-index: 20001;
+}
+
+/* 确保点击 label 时能精准穿透到 input */
+.menu-button {
+  cursor: pointer !important;
+  display: flex;
+  position: relative;
+  z-index: 10001; /* 确保在最顶层 */
+}
+
+.hamburger {
+  pointer-events: none; /* 让点击穿透线条，直接作用于 label */
+}
+
+
+
+
+/* ===============================
+   Scroll Indicator 滚动指示器
+   =============================== */
+
+.scroll-indicator {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  cursor: pointer;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 箭头本体（暗橘红热霓虹） */
+.scroll-indicator span {
+  display: block;
+  width: 20px;
+  height: 20px;
+
+  border-right: 3px solid #ff6a3d;
+  border-bottom: 3px solid #ff6a3d;
+
+  transform: rotate(45deg);
+
+  /* 热霓虹光，不是激光 */
+  filter:
+    drop-shadow(0 0 6px rgba(255, 106, 61, 0.65))
+    drop-shadow(0 0 14px rgba(227, 90, 58, 0.55));
+
+  animation: arrow-bounce 2s infinite;
+}
+
+/* 呼吸动画（保持 rotate，不动结构） */
+@keyframes arrow-bounce {
+  0% {
+    transform: rotate(45deg) translate(0, 0);
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+    filter:
+      drop-shadow(0 0 10px rgba(255, 106, 61, 0.8))
+      drop-shadow(0 0 22px rgba(227, 90, 58, 0.65));
+  }
+
+  100% {
+    transform: rotate(45deg) translate(12px, 12px);
+    opacity: 0;
+  }
+}
+
+
+/* hover */
+.scroll-indicator:hover span {
+  border-color: #fff;
+  filter: drop-shadow(0 0 10px #fff);
+}
+
+/* 消失态 */
+.scroll-indicator.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+
+
+/* ===============================
+   开屏与正文的分界
+   =============================== */
+
+.section.intro {
+  padding-top: 6rem;
+  margin-top: calc(100vh - 6rem);
+}
+
+
+/* =====================================================
+   CIPHER:ANTARES — 全量视觉合并版
+   ===================================================== */
+
+:root {
+  --july-flame: #e62e00;
+  --dark-bg: #07080c;
+  --side-padding: 6vw;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 确保内容在底部 */
+  overflow: hidden;
+  background: var(--dark-bg);
+}
+
+/* 标题：巨型、分行、紧凑 */
+.intro-title {
+  position: relative;
+  z-index: 30;
+  padding-left: var(--side-padding);
+  margin-bottom: 20px;
+
+  /* 极致大字号与视觉压迫感 */
+  font-size: clamp(60px, 15vw, 180px); 
+  font-weight: 900;
+  letter-spacing: -0.07em; /* 字符紧凑 */
+  line-height: 0.82;       /* 行间距紧凑 */
+  
+  color: var(--july-flame);
+  text-transform: uppercase;
+  pointer-events: none;
+  text-align: left;
+  display: block; /* 改回 block，依靠 <br> 换行 */
+}
+
+/* 字符基础样式 */
+.intro-title span {
+  display: inline-block;
+  opacity: 0;
+  filter: drop-shadow(0 0 15px rgba(255, 106, 61, 0.3));
+}
+
+/* C A N S 字符入场动画 */
+.intro-title span.life {
+  opacity: 1;
+  animation: life-ignite 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes life-ignite {
+  0% { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* 普通字符打字机显现 */
+.intro-title span.type.show {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* 按钮布局：防变形 */
+.kv-actions {
+  position: relative;
+  z-index: 40;
+  padding-left: var(--side-padding);
+  margin-bottom: 12vh;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  width: auto;           /* 禁止拉伸 */
+  min-width: 140px;      /* 保证点击区域 */
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  justify-content: center;
+}
+
+.btn.primary { background: var(--july-flame); color: #000; }
+.btn.ghost { border-color: var(--july-flame); color: var(--july-flame); }
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: clamp(50px, 18vw, 90px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+  .kv-actions {
+    padding-left: var(--side-padding);
+    flex-direction: row; /* 保持横排，空间不足自动折行 */
+  }
+  .btn {
+    flex: 0 1 auto; /* 彻底防止宽度撑满屏幕 */
+    min-width: 120px;
+    padding: 10px 20px;
+  }
+}
+
+/* 页脚 */
+.main-footer {
+  position: relative;
+  z-index: 100;
+  background: #000;
+  padding: 60px var(--side-padding);
+  border-top: 1px solid var(--july-flame);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-logo img {
+  height: 30px;
+  opacity: 0.8;
+  filter: grayscale(1);
+  transition: 0.3s;
+}
+
+.footer-logo img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.presented-by{
+  margin-top: 14px;
+}
+
+.presented-content{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.main-text{
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.geo-coord{
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.45);
+}
+
+.copyright,
+.slogan {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   ICON LINKS
+========================= */
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  font-size: 26px;
+  color: #88888c;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.footer-icon-link i {
+  color: inherit;
+  font-size: inherit;
+}
+
+.footer-icon-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.5),
+    0 0 16px rgba(255,255,255,0.3);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .main-footer{
+    padding: 40px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;      /* 横向居中 */
+    justify-content: center;  /* 纵向居中 */
+    text-align: center;       /* 文字居中 */
+  }
+
+  .footer-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    gap: 18px;
+    justify-content: center;  /* icon 居中 */
+    margin-top: 24px;
+  }
+
+  .footer-icon-link {
+    font-size: 22px;
+  }
+}
+
+
+/* 向下滚动加载定义动画：从下方 30px 处滑入并变为不透明 */
+/* --- 滚动加载核心：防止水平偏移 --- */
+/* 1. 基础加载类 */
+.reveal {
+    opacity: 0;
+    /* 关键：使用 translate3d 强制仅在 Y 轴偏移，杜绝水平右偏 */
+    transform: translate3d(0, 40px, 0); 
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+/* 2. 激活类：确保 opacity 回到 1 */
+.reveal.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate3d(0, 0, 0) !important;
+}
+
+/* 3. Section 容器约束 */
+.section {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 100px var(--side-padding);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 确保标题始终保持白色且在顶层 */
+.section-title {
+    color: #ffffff;
+    z-index: 10;
+    position: relative;
+}
+
+/* 内部网格的加载动画 */
+.intro-grid.reveal {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    transition: all 0.8s ease-out;
+}

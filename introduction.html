@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIPHER:ANTARES | 赛制介绍</title>
+  <link rel="icon" href="../../assets/images/logo/ca2logo.png" type="image/png" sizes="32x32">
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/introduction.css" />
+</head>
+
+<body>
+
+<!-- ===============================
+     顶部导航（独立存在）
+     =============================== -->
+<header class="site-header">
+  <div class="nav-inner">
+   <a href="index.html" class="logo">
+  <span class="logo-text">CIPHER:ANTARES II</span>
+</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" style="display: none;">
+    
+    <label for="nav-toggle" class="menu-button">
+      <span class="hamburger"></span>
+    </label>
+
+    <div class="header-right">
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="introduction.html">INTRO</a>
+        <a href="highlight.html">HIGHLIGHT</a>
+        <a href="guidelines.html">GUIDE</a>
+        <a href="about.html">ABOUT US</a>
+      </nav>
+
+      <div class="nav-music-btn" id="bgm-btn">
+        <div class="music-bars"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        <span class="music-text">BGM</span>
+        <audio id="main-audio" loop><source src="../assets/music/ca2mix.mp3" type="audio/mp3"></audio>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===============================
+     赛制banner和二级菜单控件
+     =============================== -->
+<section class="tournament-hub-section">
+
+  <div class="tournament-banner-wrapper">
+    
+    <div class="t-banner active" id="banner-online-pre">
+      <img src="../../assets/images/intro/online/online.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_SOLO ]</div>
+        <h1 class="banner-title">ONLINE<br>Qualifier</h1>
+        <p class="banner-subtitle">赛制明细 | 线上预选</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-top24-points">
+      <img src="../../assets/images/intro/24to8/24to8.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_SOLO ]</div>
+        <h1 class="banner-title">MATCH POINT <br>LEAGUE STAGE</h1>
+        <p class="banner-subtitle">赛制明细 | 赛点制积分赛</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-top8-double">
+      <img src="../../assets/images/intro/8to4/8to4.png" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_SOLO ]</div>
+        <h1 class="banner-title">DOUBLE<br>ELIMINATION</h1>
+        <p class="banner-subtitle">赛制明细 | 双败淘汰赛</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-team-01">
+      <img src="../../assets/images/intro/number/yuci.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_NUMBER ]</div>
+        <h1 class="banner-title">NUMBER<br> RECUIT 01</h1>
+        <p class="banner-subtitle">共作会 | 华丽的舞台叙事——两大帮派间的明争暗斗</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-team-02">
+      <img src="../../assets/images/intro/number/yingye.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_NUMBER ]</div>
+        <h1 class="banner-title">NUMBER<br> RECUIT 02</h1>
+        <p class="banner-subtitle">共作会 | Torch之极意</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-team-03">
+      <img src="../../assets/images/intro/number/shendu.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_NUMBER ]</div>
+        <h1 class="banner-title">NUMBER<br> RECUIT 03</h1>
+        <p class="banner-subtitle">共作会 | 夜間逃避 & 沈杜公路</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-banner" id="banner-team-04">
+      <img src="../../assets/images/intro/number/yuzhou.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: STAGE_NUMBER ]</div>
+        <h1 class="banner-title">NUMBER<br> RECUIT 04</h1>
+        <p class="banner-subtitle">共作会 | 時空越え旅団</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-controls">
+      <button class="ctrl-btn prev" id="hub-banner-prev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="ctrl-btn next" id="hub-banner-next">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="control-matrix-menu">
+    <div class="matrix-menu-container">
+      
+      <div class="primary-menu-pane">
+        <button class="menu-btn active" data-tab="solo-pane">
+          <span class="btn-sub">TRACK.01</span>
+          <span class="btn-main">个人赛</span>
+        </button>
+        <button class="menu-btn" data-tab="team-pane">
+          <span class="btn-sub">TRACK.02</span>
+          <span class="btn-main">共作会</span>
+        </button>
+      </div>
+      
+      <div class="matrix-pane-divider"></div>
+      
+      <div class="sub-pane-group active" id="solo-pane">
+        <button class="sub-btn active" data-banner="banner-online-pre">
+          <span class="btn-sub">STAGE_01</span>
+          <span class="btn-main">线上预选</span>
+        </button>
+        <button class="sub-btn" data-banner="banner-top24-points">
+          <span class="btn-sub">STAGE_02</span>
+          <span class="btn-main">24进8</span>
+        </button>
+        <button class="sub-btn" data-banner="banner-top8-double">
+          <span class="btn-sub">FINAL</span>
+          <span class="btn-main">8进4</span>
+        </button>
+      </div>
+
+      <div class="sub-pane-group" id="team-pane">
+        <button class="sub-btn" data-banner="banner-team-01">
+          <span class="btn-sub">TEAM_A</span>
+          <span class="btn-main">狱祠 & 飞机</span>
+        </button>
+        <button class="sub-btn" data-banner="banner-team-02">
+          <span class="btn-sub">TEAM_B</span>
+          <span class="btn-main">影夜</span>
+        </button>
+        <button class="sub-btn" data-banner="banner-team-03">
+          <span class="btn-sub">TEAM_C</span>
+          <span class="btn-main">连连 & 三水</span>
+        </button>
+        <button class="sub-btn" data-banner="banner-team-04">
+          <span class="btn-sub">TEAM_D</span>
+          <span class="btn-main">宇宙 </span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+<!-- ===============================
+     二级菜单下赛事信息看板
+     =============================== -->
+<div class="info-matrix-panel">
+  <div class="info-panel-container">
+    <!-- 线上预选赛事信息    -->
+    <div class="info-pane-content active" id="info-banner-online-pre">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">线上赛制说明</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+              线上赛入围赛采取“两次抉择，AB命题”的模式。参赛选手需在赛事组委 Aurorally 指定的曲库中选择其一作为投稿演绎曲目，并根据选曲在两则课题中选择其一进行演绎。<br>
+              <span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);">※ 线上赛预选投稿截止时间为 2026.5.31 23:59</span>
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 视频讲解：</span>
+              <a href="https://www.bilibili.com/video/BV1BxREBSEFi" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">预选曲库</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+              aze - じん/MARiA<br>
+              美しく生きろ - 高嶺のなでしこ<br>
+              Atlantico Blue - 佐咲纱花<br>
+              刻ト詩-OP Short ver - 水谷瑠奈<br>
+              雪は何色 - Kotoha<br>
+              Iris (Original Mix) - 濵田有共/紫村花澄<br>
+              僕が僕であるために - AliA<br>
+              ジターバグ - ELLEGARDEN
+            </p>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 预选曲库：</span>
+              <a href="https://163cn.tv/6jztJVp" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">课题 A</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+              选手须在选曲片段内完成以下内容：<br>
+              ①主歌ABメロ部分完成至少四个八拍的关西OAD（含ソイヤ和ニーハイオーハイ），至少2个ロザリオ和1个ロサンゼルス。若完成指定课题动作后仍有多余部分，可进行自由演绎但不得省略。<br>
+              ②副歌部分可使用副歌技或自定振付演绎。完成课题动作后若有多余部分要求同上。
+            </p>
+            
+            <h3 class="board-title">课题 B</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+              选手须在选曲片段内完成以下内容：<br>
+              ①2~3个副歌技或相当于2~3个副歌技长度的自定振付<br>
+              ②至少1个副歌技长度的ロマンス
+            </p>
+          </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">注意事项</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.7;">
+              线上入围赛投稿对分段录制和一镜到底不作限制。选择一镜到底的稿件，评审会根据前文提及维度酌情加分。稿件含tag<span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);"> #CA2SOLO</span> 视为有效投稿。<br>
+              <span style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; display: block; margin-top: 8px;">
+                ※ 投稿ID请务必使用自己的最常用ID，不得冒用他人ID或使用诸如其他角色名字等无法让我们确认身份的ID，同样在投稿上传后不得再次更改ID或对稿件进行换源处理，否则我们有权取消参赛资格。
+              </span>
+            </p>
+          </div>
+
+        </div> <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">预选入围名单</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="DFM" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+
+                <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="DFM" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+                
+            
+          </div>
+        </div> 
+    </div>
+  </div>
+    
+  </div>
+</div>
+
+     <!-- 24进8信息   -->
+<div class="info-panel-container">
+    <div class="info-pane-content active" id="info-banner-top24-points">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">赛点制小组积分赛说明</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+             区别于以往淘汰赛，本赛制创新性地引入“隐藏分赏金+赛点制”的竞技机制，赛事组委希望由此带来全新的观赛与竞技体验。<br><br>
+             根据选手在预选赛的评分表现分，晋级线下赛事的24名选手会被分为4组，即每组6人。各小组内每名选手将先后进行4场对决，每名选手的前3场不会匹配到相同对手。通过进行<span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);">BO1单技先后对攻</span>。评委将根据线上赛的维度评判进行投票，由裁判宣读本场胜者。
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 视频讲解：</span>
+              <a href="#" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">积分规则</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            ● 每场比赛胜者获得积分，胜者自身「隐藏分」+1；败者不获得积分，自身隐藏分不变；<br>
+            ● 若胜者击败的是一名当前「隐藏分」为 0 的选手，则该胜者获得 1 分；<br>
+            ● 若胜者击败的是一名当前拥有隐藏分的选手，则该胜者获得的积分为：1 + 对手当前隐藏分。</p>
+            
+            <h3 class="board-title">赛点机制</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            「赛点」状态有两种获得方式：分为积分「赛点」和终结「赛点」。<br>
+            若有选手到达4分，则该选手进入「赛点」状态。若拥有「赛点」的选手被击败，则胜者也获得「赛点」。<br>
+            「赛点」选手在赢下后续任意一场比赛即可出线，有2名选手确认出线将提前结束该组小组赛进程。<br>
+        </p>
+
+        </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">结算阶段</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            当小组内每名选手均完成4场对决，即小组内12场对决结束后仍未满2名选手出线，该小组赛程进入结算阶段。<br>
+            结算阶段分两种情况进行说明：<br>
+            1.已出线选手与「赛点」选手人数未超过2名时，「赛点」选手将直接出线。剩余出线名额将由非「赛点」的选手依照积分和胜负关系顺位补齐出线名额；<br>
+            2.已出线选手与「赛点」选手人数超过2名时，「赛点」选手将依照积分和胜负关系顺位决定出线名额。<br>
+            <span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);">※ 若有积分和胜负场次均相同且影响出线补位的情况，同顺位选手将进行bo1单技对攻加赛决定出线资格。</span>
+          </p>
+          </div>
+
+        </div> <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">八强出线名单</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="DFM" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+        </div> 
+    </div>
+  </div>
+  </div>
+  
+
+         <!-- 8进4   -->
+  <div class="info-panel-container">
+      <div class="info-pane-content active" id="info-banner-top8-double">
+        <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">八强双败淘汰赛说明</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+             以下将根据图示说明淘汰赛的双败机制：<br>
+             <img src="../../assets/images/intro/8to4/top4.png" 
+                 alt="双败赛制图示" 
+                    class="board-bracket-img" 
+                    onclick="zoomImage(this)">
+                
+                出线选手将采取同位匹配方式进行分组。即第一匹配第一、第二匹配第二，以此进入 G1-G4 阶段，争夺胜者组晋级名额。后续胜者将在 G11 阶段迎来胜者组决赛。<br><br>
+                
+                选手在胜者组失利后，将进入败者组继续比赛，灰色块为在某场次失利下降至败者组的选手；若在败者组再次失利，则直接淘汰出局。<br>
+                胜者组路径各轮次败者将依照 G7、G8 轮次路径进行败者组淘汰赛。<br>
+                后续胜者将在 G13 阶段迎来败者组决赛。<br><br>
+
+                在本赛段中：<br>
+                G1-G10 及 G12 阶段，选手进行<span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);"> BO1 单技先后对攻</span>。<br>
+                G11、G13 胜败者组决赛阶段，进行<span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);"> BO1 先后双技演绎 </span>。曲目由选手于赛前自行决定。<br><br>
+
+                G14 总决赛采取<span style="color: #ff334d; font-weight: 700; text-shadow: 0 0 4px rgba(255, 51, 77, 0.3);"> BO1 双技先后对攻</span> 。<br>
+                选手需演绎同一曲目中不同部分的副歌内容，曲目由赛事组委指定。比赛过程中，歌曲将快速跳转至下一段副歌。<br>
+
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 视频讲解：</span>
+              <a href="#" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">提示</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            本赛段中若一名败者组的选手想要夺冠，这名选手需要在整场比赛演绎11-13个副歌技，因此，赛事组建议选手至少准备13-15个副歌技。</p>
+        </div>
+        
+        <div class="text-flow-board">
+            <h3 class="board-title">赛事激励</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            本次Cipher：Antares II赛事中，晋级四强的选手，将获得由赛事组委提供的创作激励奖金。</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 20px 0; width: 100%; box-sizing: border-box;">
+  
+    <div style="background: rgba(255, 176, 0, 0.03); border: 1px solid rgba(255, 176, 0, 0.15); border-top: 3px solid #ffb000; border-radius: 6px; padding: 16px 10px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+    <div style="font-size: 0.75rem; color: rgba(255, 176, 0, 0.5); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 4px;">CHAMPION</div>
+    <div style="font-size: 1.2rem; color: #ffb000; font-weight: 800; text-shadow: 0 0 8px rgba(255, 176, 0, 0.6); margin-bottom: 10px;"> 冠军</div>
+    <div style="font-size: 1.6rem; color: #ffffff; font-family: 'Impact', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 0.5px;">
+      1888 <span style="font-size: 0.85rem; color: rgba(255,255,255,0.5); font-family: sans-serif; font-weight: normal;">元</span>
+    </div>
+     </div>
+
+     <div style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.08); border-top: 3px solid #bcc6cc; border-radius: 6px; padding: 16px 10px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+    <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.3); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 4px;">2ND PLACE</div>
+    <div style="font-size: 1.2rem; color: #e0e0e0; font-weight: 800; text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); margin-bottom: 10px;"> 亚军</div>
+    <div style="font-size: 1.6rem; color: #ffffff; font-family: 'Impact', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 0.5px;">
+      1288 <span style="font-size: 0.85rem; color: rgba(255,255,255,0.5); font-family: sans-serif; font-weight: normal;">元</span>
+    </div>
+      </div>
+
+      <div style="background: rgba(255, 51, 77, 0.02); border: 1px solid rgba(255, 51, 77, 0.12); border-top: 3px solid #ff334d; border-radius: 6px; padding: 16px 10px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+    <div style="font-size: 0.75rem; color: rgba(255, 51, 77, 0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 4px;">3RD & 4TH</div>
+    <div style="font-size: 1.1rem; color: #ff334d; font-weight: 800; text-shadow: 0 0 8px rgba(255, 51, 77, 0.5); margin-bottom: 10px;"> 季军 | 殿军</div>
+    <div style="font-size: 1.6rem; color: #ffffff; font-family: 'Impact', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 0.5px;">
+      648 <span style="font-size: 0.85rem; color: rgba(255,255,255,0.5); font-family: sans-serif; font-weight: normal;">元</span>
+    </div>
+      </div>
+
+</div>
+        </div>
+        
+  </div> 
+        
+        
+        <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">终局四强名单</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="top4" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+        </div> 
+
+  </div> 
+</div> 
+</div>
+
+         <!-- 鱼刺飞机   -->
+   <div class="info-panel-container">
+         <div class="info-pane-content active" id="info-banner-team-01">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">Team：狱祠&飞机 招募要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+            <img src="../../assets/images/intro/number/yuci.webp" 
+                 alt="双败赛制图示" 
+                    class="board-bracket-img" 
+                    onclick="zoomImage(this)">
+             Team风格：华丽的舞台叙事——两大帮派间的明争暗斗<br><br>
+            “我们来自Aurorally，作为曾经有过《レクイエム》等合作经验的二人作为课题主，希望集结两支针锋相对的人马，为观众带来一场暗流涌动，惊心动魄的舞台演出。”<br>
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 招募视频：</span>
+              <a href="https://www.bilibili.com/video/BV1JM536qECU" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">招募需求</h3>
+             <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+                    1. 了解两位课题主的风格；<br>
+                    2. 有快速掌握振付的能力，节奏感强，能听清歌曲节拍；<br>
+                    3. 对舞台有自己的理解，有“台风”，如有任何形式的舞台表演经验为佳；<br>
+                    4. 请提交对好音轨的视频，避免原视频嘈杂、节拍不清晰等情况；<br>
+                    5. 如果使用了至今已公布的技，请尽量保证节拍演绎无误；<br>
+                    6. 有条件在赛事前一日进行线下集中排练。</p>
+            
+            <h3 class="board-title">基础要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            录制一段至少为【仅副歌】形式的视频，歌曲不限，但需要有进入副歌前的Opening Pose和副歌结束后的Ending Pose。<br><br>
+        </p>
+
+            <h3 class="board-title">进阶要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1.在副歌前后能根据歌曲设计动作；<br>
+            2.所演绎的技或振付能够准确卡在鼓点、歌词等节奏性强的点上；<br>
+            3.演绎期间有“自信”的气场，能感受到你演绎的闪光点。<br>
+        </p>
+
+        </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">投稿方式</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            以防占用平台资源，请各位有意向者通过社交软件将视频发送给课题主。<br>
+            QQ（狱祠）：854078385<br>
+            QQ（飞机）：2536796879<br><br>
+
+            报名所用视频在招募期间请勿发布至公众媒体平台（如 bilibili）。<br>
+            无论是否入选，我们都会针对该次投稿视频，向投稿打师提供指导性意见与友好交流。<br>
+          </div>
+
+             <div class="text-flow-board">
+            <h3 class="board-title">投稿时间</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            26年5月15日 00:00 — 26年6月5日 00:00<br>
+            过时稿件无效，但若您希望一同交流，或希望课题主给予建议，我们也十分欢迎。<br>
+            我们将在筛选稿件后，主动联系入选者。<br>
+          </div>
+
+            
+
+        </div> 
+        
+        <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">LEADER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/8405130" class="avatar-link">
+                  <img src="../../assets/images/about/yuci.jpg" alt="yuci" class="avatar-img">
+                </a>
+                <span class="name-slot">狱祠</span>
+                 </div>
+
+                <div class="roster-card">
+                 <a href="https://space.bilibili.com/22711970" class="avatar-link">
+                  <img src="../../assets/images/intro/teamyuci/feiji.jpg" alt="feiji" class="avatar-img">
+                </a>
+                <span class="name-slot">飞机</span>
+            </div>
+            </div>
+          </div>
+        
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">MEMBER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="DFM" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+
+        </div> 
+    </div>
+  </div>
+  </div>
+
+
+
+
+     <!-- 影夜   -->
+       <div class="info-panel-container">
+         <div class="info-pane-content active" id="info-banner-team-02">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">Team：影夜 招募要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+            <img src="../../assets/images/intro/number/yingye.webp" 
+                 alt="team影夜" 
+                    class="board-bracket-img" 
+                    onclick="zoomImage(this)">
+            本次共作会将于5月19号到6月7号开放成员招募，旨在依托线下活动契机，召集同好围绕泛火把主题开展深度技术交流，合力打造能向观众展示火把纯粹魅力的表演舞台。另外，此Team并不只为本次线下活动临时存在，也将在后续作为交流平台，进一步探索多元化的火把内容。<br><br>
+            （有关于共作会机制的详细内容，请参阅CA2主账号的宣发视频）<br>
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 招募视频：</span>
+              <a href="https://www.bilibili.com/video/BV1d8LA6VEpt/" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">核心要求</h3>
+             <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+                    1、对泛火把领域，尤其是现代火把技术有较为深入的了解，且以此类型技术作为个人强项。<br>
+                    2、有较强的振付学习能力，对节拍有较为精准的感知，能够灵活调整动作的卡拍。<br>
+                    3、对舞台表演流程有较为清晰的认知和理解，如有一定的表演经验则更佳。<br>
+                    4、需要在正赛前一个月完成线上的编排学习，并出席CA2正赛日前一天白天的集中排练。</p>
+            
+            <h3 class="board-title">参选方式</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1、任意选用一首包含4个技的曲目副歌进行演绎，要求所选用的所有技或振付均属于泛火把领域，且其中至少包含一个课题主个人的自创技。<br>        
+            2、请将参选视频在Bilibili投稿，标题格式为【CA2影夜共作会投稿】xxx，其中xxx是参选人的常用CN。同时，标签中需要添加【CA2影夜共作会投稿】。<br>
+            3、确保画质清晰不断弧，画面不得过于昏暗。其它方面如荧光棒颜色、是否各段分开录制等，则无要求。<br>
+            4、审核时将以光弧、节拍、身形等多个维度作为评判标准。<br>
+            5、参选开放时间：2026.5.19 - 2026.6.7 晚12:00截止。<br><br>
+        </p>
+        </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">其它招募信息</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            1、此Team预计招收约7~13名成员，视具体情况而定。<br>
+            2、参与投稿者无论是否通过，我们都会基于投稿视频提供指导性建议（可能是以线上直播评稿的形式）。而对于通过审核的成员，欢迎在正赛日前一天的排练以及赛后的周末进行线下技术交流。<br>
+            3、对于投稿细则有任何疑问，请于Bilibili私信课题主或加群747375436私聊群主详细咨询。
+          </div>
+
+            
+
+        </div> <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">LEADER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/8405130" class="avatar-link">
+                  <img src="../../assets/images/intro/teamyingye/yingye.jpg" alt="影夜" class="avatar-img">
+                </a>
+                <span class="name-slot">影夜</span>
+                 </div>
+
+            </div>
+          </div>
+        
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">MEMBER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="DFM" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+
+        </div> 
+    </div>
+    </div>
+    </div>
+
+    <!-- 连连&三水   -->
+<div class="info-panel-container">
+         <div class="info-pane-content active" id="info-banner-team-03">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">Team连连 & 三水 招募要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+            <img src="../../assets/images/intro/number/shendu.webp" 
+                 alt="team连连 & 三水" 
+                    class="board-bracket-img"
+                    onclick="zoomImage(this)">
+                    夜 間 逃 避<br>
+            本共作会由三水、连连共同负责<br>
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 招募视频：</span>
+              <a href="https://www.bilibili.com/video/BV1HgVT6dEi9" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">招募要求</h3>
+             <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+                1.在本专栏发布日5月27日起 至2026年6月21日晚23:59，在规定时间内按照要求投稿的稿件视为有效。<br>
+                2.对两位课题主的打法、风格、自创技有一定的了解。<br>
+                3.对所需的用技以及振付有一定的学习能力，并对节拍有正确的认识，可将编排内容在舞台上复现。<br>
+                4.需在正式活动开始前完成编排的线上学习，在本次Cipher：Antares II活动前一天可抵达武汉进行线下排练。<br></p>
+            
+
+                </div>
+
+            <div class="text-flow-board">
+            <h3 class="board-title">投稿细则</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1.稿件标题需按以下格式，不规范名称的稿件判为无效：<br><br>
+
+            【Cipher：Antares II 连连&三水共作会】xxxx（常用圈名）<br>
+
+            标签中也请加入：CA2连连三水共作会<br><br>
+
+            2.投稿内容可在以下课题中二选一：<br>
+        </p>
+            <h3 class="board-title">三水课题</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            歌曲：フラッシュバック-DUSTCELL（0:34-1:09）<br>
+
+            用技：三水的任意一个自创技 + 自由技 + 至少两个八拍的ロマンス。 <br></p>
+            <h3 class="board-title">连连课题</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            歌曲：形勢逆転-高梨康治（1:02-1:29部分）<br>
+
+            用技：鹤望兰系任意一技 + 自由技 + 两个八拍的收尾振付。 <br></p>
+          </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">课题备注</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1.三水的自创技范围：三水账号主页→【合集】→【オリ技】中的所有视频，打法不限，如遇动作打法不确定的可向三水私信确认。<br>
+
+            2.鹤望兰系指的是本家创作与国内外打师经过本家授权后，已创作发布的任意一个鹤望兰系列技（此次包含九重）。<br>
+
+            3.自由技不能为严格意义上的火把技【泛火把类型技除外，如みざ等】，其余不限。振付部分则不做要求。<br>
+
+            4.确保画质清晰，亮度足够，需完整露出全身，用曲需留出前后5秒的空余，对副歌技的先后顺序不作要求，可采用分段或一镜录制.<br>
+
+            5.本次共作会计划招募8-10人。截止时间后的5日内，我们将通过B站私信入选者。<br>
+
+            6.欢迎所有打师投稿，若未入选，我们也会在截止日期后对本共作会相关稿件进行指导和交流。<br>
+        </p>
+            </div> 
+            
+
+        </div> <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">LEADER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3116599" class="avatar-link">
+                  <img src="../../assets/images/intro/teamshendu/lianlian.jpg" alt="连连" class="avatar-img">
+                </a>
+                <span class="name-slot">连连</span>
+                 </div>
+
+                 <div class="roster-card">
+                <a href="https://space.bilibili.com/19477161" class="avatar-link">
+                  <img src="../../assets/images/intro/teamshendu/sanshui.jpg" alt="三水" class="avatar-img">
+                </a>
+                <span class="name-slot">三水</span>
+                 </div>
+
+            </div>
+          </div>
+        
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">MEMBER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="coming soon" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+
+        </div> 
+    </div>
+    </div>
+    </div>
+    
+    <!-- 宇宙   -->
+    <div class="info-panel-container">
+         <div class="info-pane-content active" id="info-banner-team-04">
+      <div class="info-layout-grid">
+        
+        <div class="info-left-pane">
+          
+          <div class="text-flow-board">
+            <h3 class="board-title">Team：宇宙 招募要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph">
+            <img src="../../assets/images/intro/number/yuzhou.webp" 
+                 alt="yuzhou" 
+                    class="board-bracket-img"
+                    onclick="zoomImage(this)">
+                    「以太存在於思想、精神、靈魂深處，擺渡至某個維度便能感知到」<br>
+                     与我一起，阐释灵魂。<br>
+            </p>
+            <br>
+            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 4px; font-size: 0.9rem;">
+              <span style="color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em;">※ 招募视频：</span>
+              <a href="https://www.bilibili.com/video/BV1XHGQ6AEkp/?cid=38664537787" target="_blank" style="display: inline-block; padding: 3px 12px; font-size: 0.8rem; font-weight: 700; color: #ff334d; text-decoration: none; border: 1px solid rgba(255, 51, 77, 0.4); border-radius: 20px; background: rgba(255, 51, 77, 0.05); box-shadow: inset 0 0 6px rgba(255, 51, 77, 0.2); text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);">点击进入</a>
+            </div>
+          </div>
+        
+          <div class="text-flow-board">
+            <h3 class="board-title">招募要求</h3>
+             <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1. 招募时间为2026.5.29~2026.6.19，在此期间按照要求投稿至B站视为有效；<br>
+            2. 有良好的听拍与跟拍能力，能较好地完成编排，有舞台表演经验更佳；<br>
+            3. 能积极参与Team的线上沟通，愿意付出时间和精力进行平日的练习和对于编排的练习；<br>
+            4. 赛事前至少1日能到达武汉参与线下集体排练；<br>
+            5. 有优秀的团队合作精神；<br>
+            6. 对待WOTA艺的态度严肃、严谨。<br></p>
+            
+
+                </div>
+
+            <div class="text-flow-board">
+            <h3 class="board-title">投稿细则</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            两种方式任选其一，要求如下：<br><br>
+        </p>
+            <h3 class="board-title">A.自由演绎</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            曲目：<br>
+            《Aria》- Luna/ねんね 0:08~1:33<br>
+            《Sense》- Luna/ねんね 0:07~1:42<br>
+            《絆ノ奇跡》- MAN WITH A MISSION/milet 0:23~1:25<br>
+            《forget-me-not》- H△G 0:32~1:25。 <br><br>
+            * 自定编排与构成，在以上任一歌曲的指定部分完成自由演绎。推荐带有振付，但纯关西也没有问题，不会影响考核结果；对于分段录制不做要求;<br>
+            * 选拔会从身形、歌曲理解、表现力三个方面综合考量。<br>
+        </p>
+            <h3 class="board-title">B.技展示</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="margin-bottom: 24px;">
+            曲目：<br>  
+            《Hinagesi》- Nor 0:44~1:32<br> 
+            《GGF》- Nor 0:45~1:28<br>
+            《Glitch Street》- KARUT 1:11~2:00 <br><br>
+            
+            * 在以上任一歌曲的指定部分，完成4个副歌技的展示；<br>
+            * 至少出现【雷蛇】【天照改】【村正】【宵桜】【村大竹】【羚照】【噬光者】【帐】【無月】【日輪】【铁浆蜻蛉】中的任意1个技；<br>
+            * 选拔会从体态、技的完成度、表现力、复杂度四个方面综合考量；<br>
+            * 展示技的过程中最多可以分段录制1次（分镜等其他内容没有限制）；<br>
+            * 选用此方式进行考核的打师，须在视频内/视频简介标注所使用技的技名。<br>
+        
+        </p>
+          </div>
+
+          <div class="text-flow-board">
+            <h3 class="board-title">稿件要求</h3>
+            <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+            <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">
+            1. 自行剪辑对轨，不断弧、光弧清晰，能看清完整身形，设备不限；用曲需留出前后至少5秒的空余；<br>
+            2. 副歌部分使用橙色化棒或接近亮度的同色电棒；<br>
+            3. 报名稿件标题格式为【Cipher:Antares II共作会】+个人ID+【Team：宇宙】，例如：【Cipher:Antares II共作会】宇宙【Team：宇宙】；<br>
+            4. 稿件的TAG需添加：CA2Team：宇宙，并需要在简介中注明歌曲及指定时段。个人ID的取用规则同线上预选。（标题和TAG注意中英文符号区分！）<br><br>
+            注：本次共作会计划招募约20人。截止时间的一周内，课题主会尽早主动联系入选者。
+        </p>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph" style="line-height: 1.8; margin-bottom: 14px;">  
+        附加项（课题主私货）：参加考核不需满足，也不会影响任何考核的评判，单纯是我的私货。当然如果有的话，我对你的印象会更好❥(ゝω・✿ฺ）<br>
+
+           ● 中二<br>
+
+            ● 喜欢《蔚蓝档案》<br>
+
+            ● 支持LC、桐亚或紅辘<br>
+
+            ● 对みざ有所研究<br>
+
+            ● 沉迷陽向葵ゅか<br>
+
+            ● 爱喝茶颜悦色<br>
+
+            ● 在战场上能露出笑容</p>  
+        </div> 
+            
+
+        </div> <div class="info-right-pane">
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">LEADER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/12827577" class="avatar-link">
+                  <img src="../../assets/images/intro/teamyuzhou/yuzhou.jpg" alt="宇宙" class="avatar-img">
+                </a>
+                <span class="name-slot">宇宙</span>
+                 </div>
+
+            </div>
+            </div>
+
+            <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">COLLABORATOR</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3566025" class="avatar-link">
+                  <img src="../../assets/images/intro/teamyuzhou/muhe.jpg" alt="沐合" class="avatar-img">
+                </a>
+                <span class="name-slot">沐合</span>
+              </div>
+
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/395396038" class="avatar-link">
+                  <img src="../../assets/images/intro/teamyuzhou/qiehua.jpg" alt="窃花" class="avatar-img">
+                </a>
+                <span class="name-slot">窃花</span>
+              </div>
+
+
+            </div>
+            
+          </div>
+
+          <div class="roster-widget-box">
+            <div class="roster-header">
+              <span class="roster-accent-tag" style="color: #ff334d; font-size: 0.75rem; text-shadow: 0 0 4px #ff334d, 0 0 12px rgba(255, 51, 77, 0.7); opacity: 1 !important; margin-right: 6px;">▲</span>
+              <span class="roster-group-name">MEMBER</span>
+            </div>
+            
+            <div class="roster-grid">
+              <div class="roster-card">
+                <a href="https://space.bilibili.com/3461579630708768" class="avatar-link">
+                  <img src="../../assets/images/intro/online/test.png" alt="coming soon" class="avatar-img">
+                </a>
+                <span class="name-slot">敬请期待</span>
+              </div>
+            </div>
+            
+          </div>
+
+        </div> 
+    </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 页脚区域 -->
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img
+          src="../../assets/images/logo/half-logo.png"
+          alt="CIPHER:ANTARES II"
+        >
+
+        <div class="presented-by">
+          <div class="presented-content">
+
+            <span class="main-text">
+              PRESENTED BY AURORALLY.
+            </span>
+
+            <span class="geo-coord">
+              [ 30.5928° N, 114.3055° E ] | feat. Raia Project
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="copyright">
+        © 2026 From_Aurorally. ALL RIGHTS RESERVED.
+      </p>
+
+      <p class="slogan">
+        All of your witness.
+      </p>
+
+    </div>
+
+    <!-- SNS LINKS -->
+
+    <div class="footer-links">
+
+      <!-- BILIBILI -->
+
+      <a
+        href="https://space.bilibili.com/3461579630708768/"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="Bilibili"
+      >
+        <i class="fa-brands fa-bilibili"></i>
+      </a>
+
+      <!-- QQ GROUP -->
+
+      <a
+        href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5QK3-1fl89k9BeYAehmGG2VY865gLKZG&authKey=m26QxLhemv8t9h1xnzWl4G32vc2Mon6k4yRUpjU6hcfHFciSiLjvbk11tkfnHjHq&noverify=0&group_code=954858240"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="QQ Group"
+      >
+        <i class="fa-brands fa-qq"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- ===============================
+     JS
+     =============================== -->
+<script src="assets/js/pages/introduction.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<!-- Lenis 核心库 -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+
+<div id="image-zoom-overlay" class="zoom-overlay" onclick="closeZoom()">
+  <img id="zoomed-image" src="" alt="放大图示">
+</div>
+
+</body>
+
+
+
+
+</html>

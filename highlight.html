@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIPHER:ANTARES | 赛事亮点</title>
+  <link rel="icon" href="../../assets/images/logo/ca2logo.png" type="image/png" sizes="32x32">
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/highlight.css" />
+</head>
+
+<body>
+
+<!-- ===============================
+     顶部导航（独立存在）
+     =============================== -->
+<header class="site-header">
+  <div class="nav-inner">
+   <a href="index.html" class="logo">
+  <span class="logo-text">CIPHER:ANTARES II</span>
+</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" style="display: none;">
+    
+    <label for="nav-toggle" class="menu-button">
+      <span class="hamburger"></span>
+    </label>
+
+    <div class="header-right">
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="introduction.html">INTRO</a>
+        <a href="highlight.html">HIGHLIGHT</a>
+        <a href="guidelines.html">GUIDE</a>
+        <a href="about.html">ABOUT US</a>
+      </nav>
+
+      <div class="nav-music-btn" id="bgm-btn">
+        <div class="music-bars"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        <span class="music-text">BGM</span>
+        <audio id="main-audio" loop><source src="../assets/music/ca2mix.mp3" type="audio/mp3"></audio>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- ===============================
+     制品栏banner和选框
+     =============================== -->
+<section class="goods-hub-section">
+
+  <div class="goods-banner-wrapper">
+    
+    <div class="g-banner active" id="banner-aurorally-section">
+      <img src="../../assets/images/about/banner.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GOODS_ ]</div>
+        <h1 class="banner-title">FROM AURORALLY<br>SECTION</h1>
+        <p class="banner-subtitle">CA2场贩 | 赛事组委出品</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-banner" id="banner-raia-project">
+      <img src="../../assets/images/about/banner.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GOODS_ ]</div>
+        <h1 class="banner-title">RAIA PROJECT <br>SECTION</h1>
+        <p class="banner-subtitle">CA2场贩 | SakakiRaia出品</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-banner" id="banner-number-stage">
+      <img src="../../assets/images/about/banner.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GOODS_ ]</div>
+        <h1 class="banner-title">NUMBER STAGE<br>BONUS</h1>
+        <p class="banner-subtitle">CA2场贩 | 共作会特典</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-banner" id="banner-extra">
+      <img src="../../assets/images/about/banner.webp" alt="Banner Background" class="banner-img" />
+      <div class="banner-bg-overlay"></div>
+      <div class="banner-container">
+        <div class="banner-tag">[ DIVISION: GOODS_ ]</div>
+        <h1 class="banner-title">EXTRA<br> SECTION</h1>
+        <p class="banner-subtitle">CA2场贩 | 额外说明</p>
+        <div class="banner-deco-harness">
+          <span class="cross-pointer">+</span>
+          <span class="line-pursuit"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-controls">
+      <button class="ctrl-btn prev" id="hub-banner-prev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="ctrl-btn next" id="hub-banner-next">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="goods-matrix-menu">
+    <div class="goods-menu-container">
+    
+      <div class="goods-tab-group">
+        <button class="goods-tab-btn active" data-banner="banner-aurorally-section">
+          <span class="tab-sub">SECTION_01</span>
+          <span class="tab-main">赛事组委制品 </span>
+        </button>
+        <button class="goods-tab-btn" data-banner="banner-raia-project">
+          <span class="tab-sub">SECTION_02</span>
+          <span class="tab-main">Raia Project制品</span>
+        </button>
+        <button class="goods-tab-btn" data-banner="banner-number-stage">
+          <span class="tab-sub">SECTION_03</span>
+          <span class="tab-main">共作会特典</span>
+        </button>
+         <button class="goods-tab-btn" data-banner="banner-extra">
+          <span class="tab-sub">SECTION_04</span>
+          <span class="tab-main">额外说明</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+<div class="info-matrix-panel info-pane-content active reveal" id="info-banner-aurorally-section">
+  <div class="info-panel-container reveal">
+    
+    <div class="goods-gallery-wrapper">
+      <button class="mini-gallery-ctrl prev" onclick="scrollGallery('com-gallery-grid', 'left')">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      
+      <div class="gallery-grid" id="com-gallery-grid"></div>
+      
+      <button class="mini-gallery-ctrl next" onclick="scrollGallery('com-gallery-grid', 'right')">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+
+    <div class="gallery-divider-line"><span class="cross-pointer">+</span><span class="line-pursuit"></span><span class="cross-pointer">+</span></div>
+    <div class="info-layout-grid">
+      <div class="info-left-pane">
+        <div class="product-main-viewer"><img id="inj-com-main-img" src="" alt="Main" onclick="zoomImage(this)"><div class="viewer-corner-tag">PREVIEW_SPEC</div></div>
+      </div>
+      <div class="info-right-pane">
+        <div class="text-flow-board">
+          <div class="roster-header"><span class="roster-accent-tag" id="inj-com-tag">#SERIAL_01</span><div class="roster-group-name" id="inj-com-title">加载中...</div></div>
+          <p class="board-paragraph" id="inj-com-desc">加载中...</p>
+          <div class="product-spec-matrix"><div class="spec-matrix-title">SPECIFICATIONS</div><ul class="spec-matrix-list" id="inj-com-specs"></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="info-matrix-panel info-pane-content" id="info-banner-raia-project">
+  <div class="info-panel-container reveal">
+    
+    <div class="goods-gallery-wrapper">
+      <button class="mini-gallery-ctrl prev" onclick="scrollGallery('raia-gallery-grid', 'left')">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      
+      <div class="gallery-grid" id="raia-gallery-grid"></div>
+      
+      <button class="mini-gallery-ctrl next" onclick="scrollGallery('raia-gallery-grid', 'right')">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+
+    <div class="gallery-divider-line"><span class="cross-pointer">+</span><span class="line-pursuit"></span><span class="cross-pointer">+</span></div>
+    <div class="info-layout-grid">
+      <div class="info-left-pane">
+        <div class="product-main-viewer"><img id="inj-raia-main-img" src="" alt="Main" onclick="zoomImage(this)"><div class="viewer-corner-tag">PREVIEW_SPEC</div></div>
+      </div>
+      <div class="info-right-pane">
+        <div class="text-flow-board">
+          <div class="roster-header"><span class="roster-accent-tag" id="inj-raia-tag">#SERIAL_02</span><div class="roster-group-name" id="inj-raia-title">加载中...</div></div>
+          <p class="board-paragraph" id="inj-raia-desc">加载中...</p>
+          <div class="product-spec-matrix"><div class="spec-matrix-title">SPECIFICATIONS</div><ul class="spec-matrix-list" id="inj-raia-specs"></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 📢 修复：#info-banner-number-stage 追加 info-pane-content 类名 -->
+<div class="info-matrix-panel info-pane-content" id="info-banner-number-stage">
+  <div class="info-panel-container reveal">
+    <div class="highlight-center-layout">
+      <div class="text-flow-board">
+        <h3 class="board-title">共作会特典</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">
+          敬请期待
+        </p>
+      </div>
+      <div class="text-flow-board">
+        <h3 class="board-title">coming soon</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">coming soon</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 📢 修复：#info-banner-extra 一样追加 info-pane-content 类名 -->
+<div class="info-matrix-panel info-pane-content" id="info-banner-extra">
+  <div class="info-panel-container reveal">
+    <div class="highlight-center-layout">
+      <div class="text-flow-board">
+        <h3 class="board-title">额外说明</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">
+          敬请期待
+        </p>
+      </div>
+      <div class="text-flow-board">
+        <h3 class="board-title">coming soon</h3>
+        <hr style="border: none; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); margin: 20px 0; width: 100%;">
+        <p class="board-paragraph">coming soon</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 页脚区域 -->
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img
+          src="../../assets/images/logo/half-logo.png"
+          alt="CIPHER:ANTARES II"
+        >
+
+        <div class="presented-by">
+          <div class="presented-content">
+
+            <span class="main-text">
+              PRESENTED BY AURORALLY.
+            </span>
+
+            <span class="geo-coord">
+              [ 30.5928° N, 114.3055° E ] | feat. Raia Project
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="copyright">
+        © 2026 From_Aurorally. ALL RIGHTS RESERVED.
+      </p>
+
+      <p class="slogan">
+        All of your witness.
+      </p>
+
+    </div>
+
+    <!-- SNS LINKS -->
+
+    <div class="footer-links">
+
+      <!-- BILIBILI -->
+
+      <a
+        href="https://space.bilibili.com/3461579630708768/"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="Bilibili"
+      >
+        <i class="fa-brands fa-bilibili"></i>
+      </a>
+
+      <!-- QQ GROUP -->
+
+      <a
+        href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5QK3-1fl89k9BeYAehmGG2VY865gLKZG&authKey=m26QxLhemv8t9h1xnzWl4G32vc2Mon6k4yRUpjU6hcfHFciSiLjvbk11tkfnHjHq&noverify=0&group_code=954858240"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="QQ Group"
+      >
+        <i class="fa-brands fa-qq"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- ===============================
+     JS
+     =============================== -->
+<script src="assets/js/pages/highlight.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<!-- 📢 全局商品大图全屏放大巨幕灯箱 (请置于 body 标签结束前) -->
+<div id="global-matrix-lightbox" class="matrix-lightbox" onclick="closeMatrixZoom()">
+  <div class="lightbox-close-btn">&times;</div>
+  <!-- 顶角硬核装饰线，呼应 PREVIEW_SPEC 风格 -->
+  <div class="lightbox-corner-border">FULL_SCALE_VIEW</div>
+  <img id="lightbox-render-target" src="" alt="Matrix Render Zoom">
+</div>
+
+
+<!-- Lenis 核心库 -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</body>
+</html

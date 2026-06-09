@@ -1,0 +1,136 @@
+/* ==========================================================================
+   0. 全局视口锁（建议加在基础样式或 body 上）
+   ========================================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 彻底杜绝移动端下拉橡皮筋刷新和左右滑动的阴间气泡 */
+}
+
+/* 1. 父容器安全防线 */
+.page-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* 降维打击：锁定移动端动态视口高度 */
+  overflow: hidden;
+  background-color: #050505; /* 纯黑底色底噪 */
+}
+
+/* ==========================================================================
+   🔥 新增/优化：全屏 Flex 居中容器
+   ========================================================================== */
+.coming-soon-container {
+  display: flex;
+  justify-content: center; /* 水平绝对居中 */
+  align-items: center;     /* 垂直绝对居中 */
+  
+  position: absolute;      /* 提升层级，浮在视频图层上方 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 20px;         /* 移动端安全边距，防止极窄屏幕文字贴边 */
+  
+  z-index: 2;              /* 绝对压在背景视频（z-index: 0）之上 */
+  pointer-events: none;    /* 允许鼠标/触摸穿透，不挡后面的交互（如音乐按钮） */
+}
+
+/* ==========================================================================
+   🔥 核心优化：大标题与动态洗牌动效
+   ========================================================================== */
+.shuffle-title {
+  display: inline-block;
+  white-space: nowrap;     /* 绝杀：移动端强制单行，绝对不允许换行撕裂老虎机结构 */
+  will-change: transform;
+  line-height: 1;
+  text-transform: uppercase;
+  visibility: hidden; 
+  letter-spacing: 0.05em; 
+  
+  /* ----------------------------------------------------
+     【响应式字号黄金法则】
+     PC 端：默认 5rem
+     移动端（宽 375px 左右）：自动缩放到约 2.2rem - 2.5rem，完美塞下 11 个字母
+     ---------------------------------------------------- */
+  font-size: clamp(2.2rem, 8vw, 5rem);
+  font-family: 'akirafont', 'Orbitron', sans-serif;
+  
+  /* 机能风流体质感：加一点点暗流荧光，提升移动端低分辨率屏幕的文字锐度 */
+  text-shadow: 0 0 20px rgba(212, 30, 10, 0.2); 
+}
+
+.shuffle-title.is-ready {
+  visibility: visible;
+}
+
+/* 单字符裁剪外壳 */
+.shuffle-char-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  position: relative;
+}
+
+/* 内部纵深滚动的胶片条 */
+.shuffle-inner-strip {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* 单个字符 */
+.shuffle-char {
+  line-height: 1;
+  display: inline-block;
+  text-align: center;
+}
+
+/* ==========================================================================
+   2. 视频包装容器：死死锁定在底层
+   ========================================================================== */
+.waiting-video-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  /* 移动端特殊照顾：
+     为了防止手机横屏（Landscape）时视频露白边，
+     我们在高度和宽度上都给足 130% 的富余量（PC端120%足够，移动端建议加码） */
+  width: 130%;  
+  height: 130%;
+  transform: translate(-50%, -50%);
+  
+  z-index: 0;   
+  pointer-events: none; 
+  overflow: hidden;
+  
+  opacity: 0.8; 
+  mix-blend-mode: screen; 
+  
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* 3. 视频本体：强制覆盖满外壳 */
+.waiting-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 无论手机怎么转、怎么拉伸，视频永远不变形地填满外壳 */
+  display: block;
+}
+
+/* ==========================================================================
+   📱 专项：针对超窄屏或古董机型的微调补丁
+   ========================================================================== */
+@media (max-width: 360px) {
+  .shuffle-title {
+    font-size: 1.8rem; /* 针对 iPhone SE 第一代等极小屏的终极防爆仓安全锁 */
+    letter-spacing: 0.02em;
+  }
+}

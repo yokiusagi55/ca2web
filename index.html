@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIPHER:ANTARES | 官方赛事主页</title>
+  <link rel="icon" href="../../assets/images/logo/ca2logo.png" type="image/png" sizes="32x32">
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/index.css" />
+</head>
+
+<body>
+
+<!-- ===============================
+     顶部导航（独立存在）
+     =============================== -->
+<header class="site-header">
+  <div class="nav-inner">
+   <a href="index.html" class="logo">
+  <span class="logo-text">CIPHER:ANTARES II</span>
+</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" style="display: none;">
+    
+    <label for="nav-toggle" class="menu-button">
+      <span class="hamburger"></span>
+    </label>
+
+    <div class="header-right">
+      <nav class="main-nav">
+        <a href="index.html">HOME</a>
+        <a href="introduction.html">INTRO</a>
+        <a href="highlight.html">HIGHLIGHT</a>
+        <a href="guidelines.html">GUIDE</a>
+        <a href="about.html">ABOUT US</a>
+      </nav>
+
+      <div class="nav-music-btn" id="bgm-btn">
+        <div class="music-bars"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        <span class="music-text">BGM</span>
+        <audio id="main-audio" loop><source src="../assets/music/ca2mix.mp3" type="audio/mp3"></audio>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ===============================
+     hero 区域（从这里开始是“封面”）
+     =============================== -->
+<section class="hero">
+
+  <div class="hero-video-wrap">
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    class="hero-video-element">
+    <source src="../../assets/video/nebula2.webm" type="video/webm">
+  </video>
+</div>
+
+<div class="hero-hud-overlay"></div>
+
+
+<!-- 核心加载与展示序列 -->
+  <div class="hero-main-display">
+    <!-- 阶段 A: 英文文字 Logo (从画外飞入) -->
+    <div class="eng-logo-flyin">
+      <img src="../../assets/images/logo/eng-logo.png" alt="CIPHER ANTARES">
+    </div>
+
+    <!-- 阶段 B: 图形 Logo (常驻) -->
+    <div class="graphic-logo-permanent">
+      <img src="../../assets/images/logo/hero-logo.png" alt="Icon">
+    </div>
+  </div>
+
+  <!-- 底部控件区 -->
+  <div class="hero-footer-controls">
+    <div class="kv-actions">
+      <a class="btn primary" href="waiting.html">购票</a>
+      <a class="btn ghost" href="#intro">赛事介绍</a>
+    </div>
+
+  <div class="scroll-indicator" id="scrollIndicator">
+    <span></span>
+  </div>
+</section>
+<!-- ===============================
+     轮播动态
+     =============================== -->
+<div class="mission-ticker-container">
+  <button class="ticker-ctrl prev" onclick="moveTicker(-1)">‹</button>
+  <button class="ticker-ctrl next" onclick="moveTicker(1)">›</button>
+
+  <div class="mission-ticker" id="tickerRoot">
+    <div class="ticker-wrapper" id="tickerWrapper">
+      <div class="ticker-group">
+        <a href="https://www.bilibili.com/video/BV1cDQNBLEza/" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/news/零宣封面.webp" alt="一宣封面"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.01 赛事预热</span>
+            <span class="name">CIPHER:ANTARES II Teasing</span>
+          </div>
+        </a>
+
+        <a href="https://www.bilibili.com/video/BV1BxREBSEFi/" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/news/一宣封面.webp" alt="二宣封面"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.02 线上赛启动</span>
+            <span class="name">Online Stages Kick-off</span>
+          </div>
+        </a>
+
+       <a href="https://www.bilibili.com/video/BV1JM536qECU" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/news/teamycfj.webp" alt="team狱祠飞机"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.03 Team 狱祠飞机</span>
+            <span class="name">NUMBER STAGES RECRUIT 01</span>
+          </div>
+        </a>
+         <a href="https://www.bilibili.com/video/BV1d8LA6VEpt" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/news/teamyy.webp" alt="team影夜"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.04 Team 影夜</span>
+            <span class="name">NUMBER STAGES RECRUIT 02</span>
+          </div>
+        </a>
+        <a href="https://www.bilibili.com/video/BV1HgVT6dEi9" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/intro/number/shendu.webp" alt="team连连三水"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.05 Team 连连三水</span>
+            <span class="name">NUMBER STAGES RECRUIT 03</span>
+          </div>
+        </a>
+        <a href="https://www.bilibili.com/video/BV1XHGQ6AEkp" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/intro/number/yuzhou.webp" alt="team宇宙"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.06 Team 宇宙</span>
+            <span class="name">NUMBER STAGES RECRUIT 04</span>
+          </div>
+        </a>
+
+
+         <a href="https://b23.tv/xxx" target="_blank" class="ticker-card">
+          <div class="card-img-wrap"><img src="../../assets/images/logo/ca2logo.png" alt="logo"></div>
+          <div class="card-info">
+            <span class="tag">REPORT.07</span>
+            <span class="name">coming soon</span>
+          </div>
+        </a>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- ===============================
+     正文内容
+     =============================== -->
+<section class="section intro" id="intro">
+  <h2 class="section-title">About CA2</h2>
+
+  <div class="intro-grid reveal">
+    <div class="intro-content">
+      <div class="tagline">All of your witness.</div>
+      <div class="main-desc">
+        <p class="p-accent">延续「极光代码」的至高反叛，</p>
+        <p>由 <span class="text-red">Aurorally</span> 倾力呈现，</p>
+        <p>WOTAGEI FEST. 级赛事活动 <span class="text-red">Cipher:Antares II</span></p>
+      </div>
+      <div class="desc-divider"></div>
+      <p class="p-sub">七月流火，让我们重逢于江城</p>
+      <p class="p-sub">再一次创造与你一同实现的故事</p>
+      
+      <div class="evolution-path">
+        <div class="logo-box old">
+          <img src="../../assets/images/logo/ca1-logo.png" alt="CA1">
+          <span class="event-date">2024.05.04</span>
+        </div>
+        <div class="evolution-line">
+          <svg class="ecg-svg" viewBox="0 0 200 40" preserveAspectRatio="none">
+            <polyline class="ecg-path-bg" points="0,20 80,20 85,10 90,30 95,5 105,35 110,20 200,20" />
+            <polyline class="ecg-path-active" points="0,20 80,20 85,10 90,30 95,5 105,35 110,20 200,20" />
+          </svg>
+          <span class="up-text">REBOOTING...</span>
+        </div>
+        <div class="logo-box new">
+          <img src="../../assets/images/logo/hero-logo.png" alt="CA2">
+          <span class="event-date">2026.07.24</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-visual">
+    <div class="cipher-ui-deco top-style">
+        <img src="../assets/images/ui/cipher-ui.png" alt="UI Decoration">
+    </div>
+    
+    <div class="video-container">
+        <iframe src="//player.bilibili.com/player.html?bvid=BV1cDQNBLEza&autoplay=0" 
+                scrolling="no" border="0" frameborder="no" allowfullscreen="true">
+        </iframe>
+    </div>
+</div>
+</section>
+
+
+
+<section class="section schedule">
+  <h2 class="section-title">
+    <span class="font-en">SCHEDULE</span>
+  </h2>
+
+  <!-- 增加包裹容器 -->
+  <div class="schedule-grid">
+    <div class="schedule-timeline reveal">
+      <!-- 为每个 Item 增加 data-index，用于控制右侧图层 -->
+      <div class="schedule-item" data-index="1">
+        <div class="schedule-date">2026.04.11</div>
+        <div class="schedule-dot"></div>
+        <div class="schedule-content">
+          <span class="en">CA2 TEASING</span>
+          <div class="schedule-detail">暗号：心宿二 ヲタ芸赛事预热</div>
+        </div>
+      </div>
+
+      <div class="schedule-item" data-index="2">
+        <div class="schedule-date">2026.05.02</div>
+        <div class="schedule-dot"></div>
+        <div class="schedule-content">
+          <span class="en">ONLINE STAGES KICK-OFF</span>
+          <div class="schedule-detail">线上预选正式启动 截止至2026.05.31</div>
+        </div>
+      </div> 
+      
+      <div class="schedule-item" data-index="3">
+        <div class="schedule-date">2026.05.13</div>
+        <div class="schedule-dot"></div>
+        <div class="schedule-content">
+          <span class="en">NUMBER STAGES RECRUIT</span>
+          <div class="schedule-detail">共作会课题募集解禁 请关注课题主动态</div>
+        </div>
+      </div> 
+
+      <div class="schedule-item is-highlight" data-index="4">
+        <div class="schedule-date">2026.07.24</div>
+        <div class="schedule-dot"></div>
+        <div class="schedule-content">
+          <span class="en">WOTAGEI FEST IN WUHAN</span>
+          <div class="schedule-detail">共赴武汉。此刻，由你见证</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧ascii图像 -->
+    <div class="schedule-visual reveal">
+    <!-- 所有的字符画都会动态注入到这里 -->
+    <pre id="ascii-viewport"></pre>
+  </div>
+</section>
+
+
+
+<!-- Lineup 核心容器 -->
+<section class="lineup_section reveal">
+    <div class="lineup_sticky_wrapper reveal" id="lineup-module">
+        
+        <div class="global_video_bg" id="video-bg-container">
+            <div class="video_mask"></div> 
+            <video id="local-video-player" 
+                   muted 
+                   loop 
+                   playsinline 
+                   preload="auto">
+            </video>
+        </div>
+
+        <div class="ui_top_bar">
+            <img src="../../assets/images/lineup/lineupbar.png" alt="UI Decoration">
+        </div>
+
+        <div class="left_container">
+            <h2 class="faction_title faction-title-judge">JUDGE</h2>
+            <div class="faction_line"></div>
+            <h2 class="faction_title faction-title-referee">REFEREE</h2>
+           <p class="faction_desc"></p>
+        </div>
+
+        <div class="right_stage">
+            <div class="card_viewport">
+                <div class="staff_card" data-video="../assets/video/shabao.webm">
+                    <img src="../../assets/images/lineup/shabao.png">
+                </div>
+                <div class="staff_card" data-video="../assets/video/zhamao1.webm">
+                    <img src="../../assets/images/lineup/zhamao.png">
+                </div>
+                <div class="staff_card" data-video="../../assets/video/yingye.webm">
+                    <img src="../../assets/images/lineup/yingye.png">
+                </div>
+                <div class="staff_card" data-video="../../assets/video/yuya.webm">
+                    <img src="../../assets/images/lineup/yuya.png">
+                </div>
+                <div class="staff_card" data-video="../../assets/video/hxf.webm">
+                    <img src="../../assets/images/lineup/hxf.png">
+                </div>
+
+                <div class="staff_card" data-video="../../assets/video/sanshui.webm">
+                    <img src="../../assets/images/lineup/sanshui.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui_bottom_hud">
+            
+            <div class="hud_center_arrow_zone">
+                <div class="hud_arrow_bounce"></div>
+            </div>
+            
+            <div class="hud_main_console">
+                <div class="hud_side_text text_left">
+                    All of your witness.<span class="hud_blink_dash">/</span>
+                </div>
+                
+                <div class="hud_center_status">
+                    - LINEUP VERIFIED -
+                </div>
+                
+                <div class="hud_side_text text_right">
+                    <span>From_Aurorally.</span>
+                    <span class="hud_copyright">© 2026</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 赛制区域 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<section class="section tournament_format_section">
+    
+    <div class="absolute_bg_title" data-text="TOURNAMENT FORMAT">TOURNAMENT FORMAT</div>
+    
+    <div class="format_layout_grid">
+        
+        <div class="prize_dashboard_left">
+            <div class="hud_extended_line"></div>
+            
+            <div class="prize_header">
+                <span class="hud_tag_prefix">赛制构成｜激励金</span>
+                <h2 class="section-title-left">REWARDS</h2>
+            </div>
+
+            <div class="prize_segment active" id="prize-segment-0">
+                <div class="status_bar_tag">WOTAGEI FEST. IN WUHAN</div>
+                <div class="prize_item creation_incentive">
+                    <div class="prize_name">
+                        <span class="corner_dot"></span>创作激励
+                    </div>
+                    <div class="prize_amount_text">TOP_4_BONUS</div>
+                </div>
+                <p class="prize_sub_desc">以热情回应热爱，以技艺回应期待</p>
+            </div>
+
+            <div class="prize_segment" id="prize-segment-1">
+                <div class="status_bar_tag alert_color">THE LIFE IS BEAUTIFUL.</div>
+                
+                <div class="prize_item rank_1">
+                    <div class="prize_name"><span class="corner_dot"></span>冠军</div>
+                    <div class="prize_amount">￥1888</div>
+                </div>
+                
+                <div class="prize_item rank_2">
+                    <div class="prize_name"><span class="corner_dot"></span>亚军</div>
+                    <div class="prize_amount">￥1288</div>
+                </div>
+                
+                <div class="prize_item rank_3">
+                    <div class="prize_name"><span class="corner_dot"></span>季军 ｜ 殿军</div>
+                    <div class="prize_amount">￥648</div>
+                </div>
+            </div>
+            
+            <div class="hud_footer_code">© 2026 From_Aurorally. ALL RIGHTS RESERVED.</div>
+        </div>
+
+        <div class="card_swap_stage_right">
+            <div class="card-swap-container" id="format-card-swap">
+                
+                <div class="card shadow_card">
+                    <a href="introduction.html" class="format_gate_card gate_left">
+                        <div class="card_inner">
+                            <div class="gate_hud_tag">PHASE 01  | ONLINE</div>
+                            <h3 class="gate_title">线上预选</h3>
+                            <p class="gate_desc">
+                                2026.05.02-2026.05.31<br>
+                                线上赛入围赛采取“两次抉择，AB命题”的模式。参赛选手需在赛事组委Aurorally指定的定的曲库中选择其一作为投稿演绎曲目，并根据选曲在两则课题中选择其一进行演绎。
+                            </p>
+                            <div class="gate_arrow_icon">ENTER_</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card shadow_card">
+                    <a href="introduction.html" class="format_gate_card gate_right">
+                        <div class="card_inner">
+                            <div class="gate_hud_tag">PHASE 02  | OFFLINE</div>
+                            <h3 class="gate_title">线下正赛</h3>
+                            <p class="gate_desc">
+                               2026.07.24 MAO LIVE in WUHAN<br>
+                              线上赛综合排名前 24 名 的选手将正式获得线下赛的入场资格。<br>
+                              线下赛分为两个赛段。24进8阶段采取的赛点制小组积分赛，本赛段均为bo1单技先后对攻。<br>
+                              8强双败淘汰赛阶段胜败者组决赛采用bo1双技演绎，总决赛采用bo1双技先后对攻，其余阶段均为bo1单技先后对攻。<br>
+                            </p>
+                            <div class="gate_arrow_icon">ENTER_</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card shadow_card">
+                    <a href="introduction.html" class="format_gate_card gate_next">
+                        <div class="card_inner">
+                            <div class="gate_hud_tag">PHASE EXTRA  | NUMBER STAGE</div>
+                            <h3 class="gate_title">共作会</h3>
+                            <p class="gate_desc">
+                                与个人赛异步推进中。<br>
+                                共作会作为 CA1 自始就存在的独特项目，为各位打师朋友提供相互学习交流、同台演绎的契机，今年同样将会作为我们的强化重点。<br>
+                                本次赛事对参与个人赛和共作会课题不作限制，每人仅可参与一位课题主的课题报名投稿。
+                            </p>
+                            <div class="gate_arrow_icon">ENTER_</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 地图导航区域 -->
+<section class="access_section reveal">
+    <h2 class="access_centered_title">ACCESS</h2>
+    <p class="venue_subtitle">MAOLivehouse 武汉</p>
+
+    <div class="access_split_grid">
+        <div class="image_switcher_pane">
+            <div class="viewport_box">
+                <img id="venue_display_img" src="../../assets/images/access/name.png" alt="Venue View">
+            </div>
+            <div class="switch_nav_tabs">
+                <button class="nav_tab active" onclick="switchVenuePreview('../../assets/images/access/name.png', this)">LIVEHOUSE</button>
+                <button class="nav_tab" onclick="switchVenuePreview('../../assets/images/access/out.jpg', this)">EXTERIOR</button>
+                <button class="nav_tab" onclick="switchVenuePreview('../../assets/images/access/inter1.webp', this)">INTERIOR 01</button>
+                <button class="nav_tab" onclick="switchVenuePreview('../../assets/images/access/inter2.webp', this)">INTERIOR 02</button>
+                <button class="nav_tab" onclick="switchVenuePreview('../../assets/images/access/stage.webp', this)">STAGE</button>
+            </div>
+        </div>
+
+        <div class="text_info_pane">
+            <div class="meta_info_group">
+                <span class="meta_tag">LOCATION</span>
+                <p class="meta_value text_highlight">武汉市江岸区铭新街88号通城印巷7号楼L3-4</p>
+            </div>
+            
+            <div class="meta_info_group">
+                <span class="meta_tag">TRANSPORTATION</span>
+                <ul class="route_spec_list">
+                    <li>轨道交通 1号线 / 2号线「循礼门站」，步行约 660 米</li>
+                    <li>轨道交通 1号线 / 6号线「大智路站」，步行约 750 米</li>
+                    <li>轨道交通 2号线 / 6号线「江汉路站」，步行约 1 公里</li>
+                </ul>
+            </div>
+
+            <div class="meta_info_group">
+                <span class="meta_tag">NOTICE</span>
+                <p class="meta_value text_muted">
+                  ※ 场地内谢绝外来酒水饮品，请勿在场内吸烟。<br>
+                  ※ 本次赛事场馆二层仅为工作人员使用，观众请勿进入。<br>
+                  ※ 场馆周边停车位较为紧张，建议提前规划好出行方式。<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="map_bottom_stage">
+        <div id="baidu_map_container"></div>
+    </div>
+</section>
+<!-- 赞助&鸣谢 -->
+<section class="sponsor_section_simple reveal">
+    <h2 class="sponsor_title_simple">SPONSOR</h2>
+    
+    <div class="sponsor_list_simple">
+        
+        <div class="sponsor_item_simple">
+            <a href="https://space.bilibili.com/10678397" target="_blank" class="sponsor_link_simple">
+                <img src="../../assets/images/logo/moyin.jpg" alt="Sponsor Logo 1" class="sponsor_img_simple">
+            </a>
+            <p class="sponsor_desc_simple">末音_Mory1_z | 赛事资金赞助</p>
+        </div>
+
+        <div class="sponsor_item_simple">
+            <a href="https://shop293599063.taobao.com/" target="_blank" class="sponsor_link_simple">
+                <img src="../../assets/images/logo/tianyi.png" alt="Sponsor Logo 2" class="sponsor_img_simple">
+            </a>
+            <p class="sponsor_desc_simple">天毅家 | 赛事物资支持</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="sponsor_section_simple reveal">
+    <h2 class="sponsor_title_simple">SPECIAL THANKS</h2>
+    
+    <div class="sponsor_list_simple">
+        
+        <div class="sponsor_item_simple">
+            <a href="https://space.bilibili.com/1451990629" target="_blank" class="sponsor_link_simple">
+                <img src="../../assets/images/logo/hanchu.png" alt="Sponsor Logo 1" class="sponsor_img_simple">
+            </a>
+            <p class="sponsor_desc_simple">汉楚界隈 | 赛事支援组织</p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- 页脚区域 -->
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img
+          src="../../assets/images/logo/half-logo.png"
+          alt="CIPHER:ANTARES II"
+        >
+
+        <div class="presented-by">
+          <div class="presented-content">
+
+            <span class="main-text">
+              PRESENTED BY AURORALLY.
+            </span>
+
+            <span class="geo-coord">
+              [ 30.5928° N, 114.3055° E ] | feat. Raia Project
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="copyright">
+        © 2026 From_Aurorally. ALL RIGHTS RESERVED.
+      </p>
+
+      <p class="slogan">
+        All of your witness.
+      </p>
+
+    </div>
+
+    <!-- SNS LINKS -->
+
+    <div class="footer-links">
+
+      <!-- BILIBILI -->
+
+      <a
+        href="https://space.bilibili.com/3461579630708768/"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="Bilibili"
+      >
+        <i class="fa-brands fa-bilibili"></i>
+      </a>
+
+      <!-- QQ GROUP -->
+
+      <a
+        href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5QK3-1fl89k9BeYAehmGG2VY865gLKZG&authKey=m26QxLhemv8t9h1xnzWl4G32vc2Mon6k4yRUpjU6hcfHFciSiLjvbk11tkfnHjHq&noverify=0&group_code=954858240"
+        target="_blank"
+        class="footer-icon-link"
+        aria-label="QQ Group"
+      >
+        <i class="fa-brands fa-qq"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- ===============================
+     JS
+     =============================== -->
+<script src="assets/js/pages/index.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/main.js"></script>
+<!-- Lenis 核心库 -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</body>
+</html>
+
+
+
