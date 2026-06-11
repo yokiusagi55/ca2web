@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Cipher:Antares II 入场手环",
       tag: "AURORA_GEAR | 无料发放",
       cardImg: "../../assets/images/goods/shouhuan.jpg",   // 渲染在上方滚动卡片里的图
-    detailImg: "../../assets/images/about/banner.png", // 点击后注入到下方大框里的图
+    detailImg: "../../assets/images/about/banner.webp", // 点击后注入到下方大框里的图
       desc: "采用轻量、防水、抗撕裂的杜邦纸（Tyvek®）材质制作。首次验票入场时由工作人员免费为您佩戴。本手环为活动期间有效的再入场凭证，请妥善保管，遗失恕不补发，感谢您的妥善珍藏。",
       specs: [
         "材质: 杜邦 Tyvek® 特种纸材质",
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "RAIA PROJECT 拉链卫衣",
       tag: "RAIA_PROJECT | 受注预定",
       cardImg: "../../assets/images/goods/shouhuan.jpg",   // 渲染在上方滚动卡片里的图
-    detailImg: "../../assets/images/about/banner.png", // 点击后注入到下方大框里的图
+    detailImg: "../../assets/images/about/banner.webp", // 点击后注入到下方大框里的图
       desc: "",
       specs: [
         "材质: ",
