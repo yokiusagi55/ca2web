@@ -51,7 +51,7 @@
   object-fit: cover;       
   object-position: center; 
   z-index: 1;
-  filter: brightness(0.85) contrast(1.1) grayscale(0.2); 
+  filter: brightness(0.5) contrast(1.1) grayscale(0.2); 
   margin-top: 30px;
 }
 
