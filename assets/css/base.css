@@ -124,7 +124,7 @@ body {
   background-color: var(--dark-bg); /* 底色兜底 */
 
   background-image: 
-    url('../images/venue/main-bg.webp'); 
+    url('https://togetsu.top/images/venue/main-bg.webp'); 
   
   background-attachment: fixed;    /* 固定背景，产生视差滚动感 */
   background-position: center top; /* 1080x1920 图片建议从顶部对齐 */
