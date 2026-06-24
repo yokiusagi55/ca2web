@@ -64,15 +64,185 @@ document.addEventListener("DOMContentLoaded", () => {
   const committeeGoods = [
     {
       id: "com-01",
-      name: "Cipher:Antares II 入场手环",
-      tag: "AURORA_GEAR | 无料发放",
-      cardImg: "https://togetsu.top/images/goods/shouhuan.jpg",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/about/banner.webp", // 点击后注入到下方大框里的图
-      desc: "采用轻量、防水、抗撕裂的杜邦纸（Tyvek®）材质制作。首次验票入场时由工作人员免费为您佩戴。本手环为活动期间有效的再入场凭证，请妥善保管，遗失恕不补发，感谢您的妥善珍藏。",
+      name: "Astrolabe 场贩T恤",
+      tag: "AURORA_GEAR ",
+      cardImg: "https://togetsu.top/images/goods/tee.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/tee.webp", // 点击后注入到下方大框里的图
+      desc: "观测心宿二的刻印。\n坠入无定轨的星间飘游，循星盘指引，由你见证此刻。",
       specs: [
+        "品类: 场贩T恤",
+        "材质: 230g 纯棉",
+        "工艺: 水洗 | 数喷",
+        `尺码表（cm）:
+            <table class="size-table">
+              <tr>
+                <th>尺码</th>
+                <th>衣长</th>
+                <th>胸围</th>
+                <th>肩宽</th>
+                <th>袖长</th>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>72</td>
+                <td>118</td>
+                <td>57.5</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>74</td>
+                <td>122</td>
+                <td>59</td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td>2XL</td>
+                <td>76</td>
+                <td>126</td>
+                <td>60.5</td>
+                <td>23</td>
+              </tr>
+            </table>`,// 使用模板字符串支持多行 HTML
+        "定价: ¥ 139 / 件",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+      {
+      id: "com-02",
+      name: "CREW OF AURORALLY",
+      tag: "AURORA_GEAR ",
+      cardImg: "https://togetsu.top/images/goods/stafft.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/stafft.webp", // 点击后注入到下方大框里的图
+      desc: "STAFF UNIT | 致以反叛的人们\n※ 少量开放通贩",
+      specs: [
+        "品类: STAFF T恤",
+        "材质: 230g 纯棉",
+        "工艺: 水洗 | 数喷",
+        `尺码表（cm）:
+            <table class="size-table">
+              <tr>
+                <th>尺码</th>
+                <th>衣长</th>
+                <th>胸围</th>
+                <th>肩宽</th>
+                <th>袖长</th>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>72</td>
+                <td>118</td>
+                <td>57.5</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>74</td>
+                <td>122</td>
+                <td>59</td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td>2XL</td>
+                <td>76</td>
+                <td>126</td>
+                <td>60.5</td>
+                <td>23</td>
+              </tr>
+            </table>`,// 使用模板字符串支持多行 HTML
+        "定价: ¥ 145 / 件",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "com-03",
+      name: "Cipher Pass NFC透卡",
+      tag: "AURORA_GEAR",
+      cardImg: "https://togetsu.top/images/goods/card.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/card.webp", // 点击后注入到下方大框里的图
+      desc: "Leave your trace. 既是定格，亦是锚点。\n※ 支持NFC跳转官网",
+      specs: [
+        "品类: NFC透卡",
+        "材质: 亚克力",
+        "工艺: 内嵌 NFC 芯片 | 数喷",
+        "定价: ¥ 29 / 张",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "com-04",
+      name: "Cipher Antares 主题腕带",
+      tag: "AURORA_GEAR",
+      cardImg: "https://togetsu.top/images/goods/siliband.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/siliband.webp", // 点击后注入到下方大框里的图
+      desc: "将醒目的色彩点缀腕间，让心宿二的映像长久留存。",
+      specs: [
+        "品类: 手环",
+        "材质: 硅胶",
+        "规格: 20 * 2.5 cm",
+        "定价: ¥ 15 / 个",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "com-05",
+      name: "赛事LOGO 吧唧",
+      tag: "AURORA_GEAR",
+      cardImg: "https://togetsu.top/images/goods/badge.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/badge.webp", // 点击后注入到下方大框里的图
+      desc: "于解构中重组秩序，捕捉视界崩塌瞬间的机能图腾。",
+      specs: [
+        "品类: 金属徽章",
+        "材质: 马口铁",
+        "工艺: 哑光磨砂",
+        "规格: 58 mm",
+        "定价: ¥ 15 / 个",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "com-06",
+      name: "Aurorally 宽幅鼠标垫",
+      tag: "AURORA_GEAR  | 受注预定",
+      cardImg: "https://togetsu.top/images/goods/pad.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/pad.webp", // 点击后注入到下方大框里的图
+      desc: "广阔方寸，旅途再续。\n以赛事主题视觉打造的宽幅鼠标垫，将 Aurorally 的记忆延伸至桌面。\n※ 为受注预定周边，详见额外说明",
+      specs: [
+        "品类: 鼠标垫",
+        "材质: 佳积布 | 发泡橡胶",
+        "工艺: 高清热转印 | 锁边",
+        "规格: 80 * 40 * 0.3 cm",
+        "定价: ¥ 58 / 张",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "gift-01",
+      name: "赛事LOGO 金属挂饰",
+      tag: "AURORA_GIFT | 无料发放",
+      cardImg: "https://togetsu.top/images/goods/keychain.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/keychain.webp", // 点击后注入到下方大框里的图
+      desc: "采用锌合金压铸工艺制作，表面镀镍处理。作为本次活动限定纪念挂饰，可搭配钥匙、背包等随身装备使用，相聚常伴身侧。",
+      specs: [
+        "品类: 钥匙扣",
+        "材质: 锌合金",
+        "工艺: 压铸 | 电镀镍",
+        "定价: 非卖品（仅限现场入场时领取）",
+        "出品: Cipher:Antares II 赛事组委"
+      ]
+    },
+    {
+      id: "gift-02",
+      name: "入场手环",
+      tag: "AURORA_GIFT | 无料发放",
+      cardImg: "https://togetsu.top/images/goods/freeband.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/freeband.webp", // 点击后注入到下方大框里的图
+      desc: "采用轻量杜邦纸（Tyvek®）材质制作。首次验票入场时由工作人员免费为您佩戴。可作为活动期间有效的再入场凭证，请妥善保管，遗失恕不补发，感谢妥善珍藏。",
+      specs: [
+        "品类: 手环",
         "材质: 杜邦 Tyvek® 特种纸材质",
         "定价: 非卖品（仅限现场入场时领取）",
-        "出品: Cipher:Antares II 赛事组委会官方运营组"
+        "出品: Cipher:Antares II 赛事组委"
       ]
     }
   ];
@@ -83,16 +253,91 @@ document.addEventListener("DOMContentLoaded", () => {
   const raiaGoods = [
     {
       id: "raia-01",
-      name: "RAIA PROJECT 拉链卫衣",
+      name: "Sweetest Vengeance 拉链卫衣",
       tag: "RAIA_PROJECT | 受注预定",
-      cardImg: "https://togetsu.top/images/goods/shouhuan.jpg",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/about/banner.webp", // 点击后注入到下方大框里的图
-      desc: "",
-      specs: [
-        "材质: ",
-        "尺寸: ",
-        "定价: ",
+      cardImg: "https://togetsu.top/images/goods/hoodie.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/hoodie.webp", // 点击后注入到下方大框里的图
+      desc: "Now I've had enough time to think back\nAnd I am ready to go\nSo here I go\n※ 为受注预定周边，详见额外说明",
+       specs: [
+        "品类: Oversize 拉链卫衣",
+        "材质: 450g 纯棉",
+        "工艺: 数喷",
+        `可选尺码（cm）:
+            <table class="size-table">
+              <tr>
+                <th>尺码</th>
+                <th>衣长</th>
+                <th>胸围</th>
+                <th>肩宽</th>
+                <th>袖长</th>
+              </tr>
+              <tr>
+                <td>S</td>
+                <td>60</td>
+                <td>72</td>
+                <td>65</td>
+                <td>55</td>
+              </tr>
+              <tr>
+                <td>M</td>
+                <td>62</td>
+                <td>74</td>
+                <td>67</td>
+                <td>56</td>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>64</td>
+                <td>76</td>
+                <td>69</td>
+                <td>57</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>66</td>
+                <td>78</td>
+                <td>71</td>
+                <td>58</td>
+              </tr>
+              <tr>
+                <td>XXL</td>
+                <td>68</td>
+                <td>80</td>
+                <td>73</td>
+                <td>59</td>
+              </tr>
+              </table>`,// 使用模板字符串支持多行 HTML
+        "通常预订: ¥ 279 / 件",
+        "选手预订: ¥ 217 / 件",
         "出品: Sakakiraia"
+      ]
+    },
+    {
+      id: "raia-02",
+      name: "Aurorally 印象手机壳",
+      tag: "RAIA_PROJECT | 受注预定",
+      cardImg: "https://togetsu.top/images/goods/case.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/case.webp", // 点击后注入到下方大框里的图
+      desc: "现实交织、光谱同谐\n※ 为受注预定周边，详见额外说明",
+      specs: [
+        "材质: 磨砂硅胶",
+        "通常预订: ¥ 23 / 个",
+        "选手预订: ¥ 15 / 个",
+        "出品: Sakakiraia"
+      ]
+    },
+    {
+      id: "raia-03",
+      name: "三管局 主题手机支架",
+      tag: "RAIA_PROJECT | 寄售",
+      cardImg: "https://togetsu.top/images/goods/sgj.webp",   // 渲染在上方滚动卡片里的图
+    detailImg: "https://togetsu.top/images/goods/sgj.webp", // 点击后注入到下方大框里的图
+      desc: "联动整备·三管局试作型气囊手机支架，敬请期待\n※ 为三水&连连共作会TEAM礼品，少量通贩",
+      specs: [
+        "品类: 背胶气囊手机支架",
+        "工艺: 3D打印",
+        "定价: ¥ 18 / 个",
+        "出品: 三管局"
       ]
     }
   ];
