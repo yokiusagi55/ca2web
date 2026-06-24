@@ -662,8 +662,8 @@
     aspect-ratio: 4 / 3;
   }
   .product-main-viewer img {
-    max-width: 90%;
-    max-height: 90%;
+   max-width: 70%;
+  max-height: 70%;
   }
 
   /* 文字详情面板内边距与间距微调 */
