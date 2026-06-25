@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "品类: 背胶气囊手机支架",
         "工艺: 3D打印",
         "定价: 非卖品（仅展示）",
-        "出品: 三管局"
+        "出品: 琉璃工坊"
       ]
     }
   ];
