@@ -320,7 +320,8 @@ document.addEventListener("DOMContentLoaded", () => {
     detailImg: "https://togetsu.top/images/goods/case.webp", // 点击后注入到下方大框里的图
       desc: "现实交织、光谱同谐\n※ 为受注预定周边，详见额外说明",
       specs: [
-        "材质: 磨砂硅胶",
+        "材质: UV印刷PC壳",
+        "支持机型: 基本全机型，请在预订单备注；若无法生产会联系退款",
         "通常预订: ¥ 23 / 个",
         "选手预订: ¥ 15 / 个",
         "出品: Sakakiraia"
@@ -332,11 +333,11 @@ document.addEventListener("DOMContentLoaded", () => {
       tag: "RAIA_PROJECT | 寄售",
       cardImg: "https://togetsu.top/images/goods/sgj.webp",   // 渲染在上方滚动卡片里的图
     detailImg: "https://togetsu.top/images/goods/sgj.webp", // 点击后注入到下方大框里的图
-      desc: "联动整备·三管局试作型气囊手机支架，敬请期待\n※ 为三水&连连共作会TEAM礼品，少量通贩",
+      desc: "联动整备·三管局试作型气囊手机支架，锐意打样，敬请期待\n※ 为三水&连连共作会TEAM礼品",
       specs: [
         "品类: 背胶气囊手机支架",
         "工艺: 3D打印",
-        "定价: ¥ 18 / 个",
+        "定价: 非卖品（仅展示）",
         "出品: 三管局"
       ]
     }
