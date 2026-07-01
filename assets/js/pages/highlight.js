@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Astrolabe 场贩T恤",
       tag: "AURORA_GEAR ",
       cardImg: "https://togetsu.top/images/goods/tee.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/tee.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/t.webp", // 点击后注入到下方大框里的图
       desc: "观测心宿二的刻印。\n坠入无定轨的星间飘游，循星盘指引，由你见证此刻。",
       specs: [
         "品类: 场贩T恤",
@@ -105,7 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
               </tr>
             </table>`,// 使用模板字符串支持多行 HTML
         "定价: ¥ 139 / 件",
-        "出品: Cipher:Antares II 赛事组委"
+        "出品: Cipher:Antares II 赛事组委",
+        "Model: Neru",
+        "Photograph: 陈颂"
       ]
     },
       {
@@ -113,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "CREW OF AURORALLY",
       tag: "AURORA_GEAR ",
       cardImg: "https://togetsu.top/images/goods/stafft.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/stafft.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/crewt.webp", // 点击后注入到下方大框里的图
       desc: "STAFF UNIT | 致以反叛的人们\n※ 少量开放通贩",
       specs: [
         "品类: STAFF T恤",
@@ -151,7 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
               </tr>
             </table>`,// 使用模板字符串支持多行 HTML
         "定价: ¥ 145 / 件",
-        "出品: Cipher:Antares II 赛事组委"
+        "出品: Cipher:Antares II 赛事组委",
+        "Model: Neru",
+        "Photograph: 陈颂"
       ]
     },
     {
@@ -256,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Sweetest Vengeance 拉链卫衣",
       tag: "RAIA_PROJECT | 受注预定",
       cardImg: "https://togetsu.top/images/goods/hoodie.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/hoodie.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/jacket.webp", // 点击后注入到下方大框里的图
       desc: "Now I've had enough time to think back\nAnd I am ready to go\nSo here I go\n※ 为受注预定周边，详见额外说明",
        specs: [
         "品类: Oversize 拉链卫衣",
@@ -309,7 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
               </table>`,// 使用模板字符串支持多行 HTML
         "通常预订: ¥ 279 / 件",
         "选手预订: ¥ 217 / 件",
-        "出品: Sakakiraia"
+        "出品: Sakakiraia",
+        "Model: Neru",
+        "Photograph: 陈颂"
       ]
     },
     {
