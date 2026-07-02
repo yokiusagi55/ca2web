@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "raia-03",
       name: "三管局 主题手机支架",
-      tag: "RAIA_PROJECT | 寄售",
+      tag: "RAIA_PROJECT | 联动",
       cardImg: "https://togetsu.top/images/goods/sgj.webp",   // 渲染在上方滚动卡片里的图
     detailImg: "https://togetsu.top/images/goods/sgj.webp", // 点击后注入到下方大框里的图
       desc: "联动整备·三管局试作型气囊手机支架，锐意打样，敬请期待\n※ 为三水&连连共作会TEAM礼品",
