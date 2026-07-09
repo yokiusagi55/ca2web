@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Aurorally 宽幅鼠标垫",
       tag: "AURORA_GEAR  | 受注预定",
       cardImg: "https://togetsu.top/images/goods/pad.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/pad.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/padview.webp", // 点击后注入到下方大框里的图
       desc: "广阔方寸，旅途再续。\n以赛事主题视觉打造的宽幅鼠标垫，将 Aurorally 的记忆延伸至桌面。\n※ 为受注预定周边，详见额外说明",
       specs: [
         "品类: 鼠标垫",
