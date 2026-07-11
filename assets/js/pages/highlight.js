@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Cipher Pass NFC透卡",
       tag: "AURORA_GEAR",
       cardImg: "https://togetsu.top/images/goods/card.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/card.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/cardview.webp", // 点击后注入到下方大框里的图
       desc: "Leave your trace. 既是定格，亦是锚点。\n※ 支持NFC跳转官网",
       specs: [
         "品类: NFC透卡",
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Cipher Antares 主题腕带",
       tag: "AURORA_GEAR",
       cardImg: "https://togetsu.top/images/goods/siliband.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/siliband.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/bandview.webp", // 点击后注入到下方大框里的图
       desc: "将醒目的色彩点缀腕间，让心宿二的映像长久留存。",
       specs: [
         "品类: 手环",
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "赛事LOGO 吧唧",
       tag: "AURORA_GEAR",
       cardImg: "https://togetsu.top/images/goods/badge.webp",   // 渲染在上方滚动卡片里的图
-    detailImg: "https://togetsu.top/images/goods/badge.webp", // 点击后注入到下方大框里的图
+    detailImg: "https://togetsu.top/images/goods/badgeview.webp", // 点击后注入到下方大框里的图
       desc: "于解构中重组秩序，捕捉视界崩塌瞬间的机能图腾。",
       specs: [
         "品类: 金属徽章",
