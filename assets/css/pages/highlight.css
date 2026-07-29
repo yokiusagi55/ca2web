@@ -793,3 +793,99 @@
     text-align:center;
     padding:8px 12px;
 }
+
+
+
+/* 卡片整体微光与间距优化 */
+.highlight-clip-card {
+  position: relative;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlight-clip-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* 标题与作者分布 */
+.clip-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.board-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.clip-author {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+/* 分割线 */
+.board-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%);
+  margin: 16px 0;
+  width: 100%;
+}
+
+/* 链接区域容器 */
+.clip-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.clip-link-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.clip-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
+/* 霓虹按钮悬停交互提升 */
+.bilibili-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ff334d;
+  text-decoration: none;
+  border: 1px solid rgba(255, 51, 77, 0.4);
+  border-radius: 20px;
+  background: rgba(255, 51, 77, 0.06);
+  box-shadow: 0 0 8px rgba(255, 51, 77, 0.15);
+  text-shadow: 0 0 4px rgba(255, 51, 77, 0.5);
+  transition: all 0.25s ease;
+}
+
+.bilibili-btn:hover {
+  background: rgba(255, 51, 77, 0.2);
+  border-color: rgba(255, 51, 77, 0.8);
+  box-shadow: 0 0 12px rgba(255, 51, 77, 0.4);
+  transform: translateY(-1px);
+}
